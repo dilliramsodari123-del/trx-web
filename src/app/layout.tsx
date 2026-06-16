@@ -1,15 +1,31 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk, Kalam } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/shared/navbar";
 import { Footer } from "@/components/shared/footer";
 import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp";
+import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-geist-sans",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
+});
+
+const kalam = Kalam({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "700"],
+  variable: "--font-kalam",
 });
 
 export const metadata: Metadata = {
@@ -28,8 +44,13 @@ export const metadata: Metadata = {
     "web development kathmandu",
     "affordable website nepal",
   ],
-  authors: [{ name: "TrX Web", url: SITE_URL }],
-  creator: "TrX Web",
+  authors: [{ name: "TRx WEB", url: SITE_URL }],
+  creator: "TRx WEB",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   metadataBase: new URL(SITE_URL),
   openGraph: {
     type: "website",
@@ -64,9 +85,6 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  verification: {
-    google: "your-google-verification-code",
-  },
 };
 
 export default function RootLayout({
@@ -75,13 +93,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-white text-slate-900">
-        <Navbar />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <FloatingWhatsApp />
-        <Toaster position="bottom-right" richColors />
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${kalam.variable} h-full`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col bg-background text-foreground antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <FloatingWhatsApp />
+          <Toaster position="bottom-right" richColors />
+        </ThemeProvider>
       </body>
     </html>
   );
