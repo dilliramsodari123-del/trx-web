@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Zap, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -35,10 +36,10 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center mx-auto mb-3">
-            <Zap className="w-6 h-6 text-white" />
+          <div className="flex justify-center mb-3">
+            <Image src="/logo.png" alt="TRx WEB" width={72} height={72} className="rounded-full" />
           </div>
-          <h1 className="text-2xl font-extrabold text-slate-900">TrX Web Admin</h1>
+          <h1 className="text-2xl font-extrabold text-slate-900">TRx <span className="text-blue-600">WEB</span> Admin</h1>
           <p className="text-slate-500 text-sm mt-1">Sign in to your dashboard</p>
         </div>
 

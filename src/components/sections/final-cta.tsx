@@ -2,68 +2,78 @@
 
 import Link from "next/link";
 import { ArrowRight, MessageCircle } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { HotBadge } from "@/components/shared/hot-badge";
 import { WHATSAPP_NUMBER } from "@/lib/constants";
 import { motion } from "@/components/shared/motion";
 
 export function FinalCtaSection() {
   const handleWhatsApp = () => {
     const msg = encodeURIComponent(
-      "Hello TrX Web! 👋 I'm ready to start my website project. Can we discuss the details?"
+      "Hello TRx WEB! 👋 I'm ready to start my website project. Can we discuss the details?"
     );
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
   };
 
   return (
-    <section className="relative py-32 bg-slate-900 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-violet-600/20 rounded-full blur-3xl" />
-      </div>
+    <section className="mx-auto mb-24 w-full max-w-7xl px-4">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="relative h-[420px] w-full overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#0a0a1a] via-[#0d1333] to-[#0a0a1a] shadow-2xl">
+          {/* Animated glow orbs */}
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-brand-violet/20 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle,_rgba(255,255,255,0.03)_1px,_transparent_1px)] [background-size:24px_24px]" />
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 text-blue-300 rounded-full px-4 py-1.5 text-xs font-semibold mb-8">
-            <span className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-            Ready When You Are
-          </span>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6">
-            Your Website Should{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
-              Not Take Weeks
+          {/* Top gradient line */}
+          <div className="via-primary/50 absolute inset-x-0 top-0 mx-auto h-px w-3/5 bg-linear-to-r from-transparent to-transparent" />
+
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            {/* Urgency badge */}
+            <div className="mb-5">
+              <HotBadge label="🔥 3 spots available this week" variant="hot" size="md" animate />
+            </div>
+
+            <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary rounded-full px-4 py-1.5 text-xs font-semibold mb-6">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              Ready When You Are
             </span>
-          </h2>
-          <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Launch online in just 48 hours. Join hundreds of Nepali businesses
-            already growing with TrX Web.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="xl" variant="gradient">
-              <Link href="/contact">
+
+            <h2 className="max-w-xl bg-linear-to-r from-zinc-200/60 via-zinc-50 to-zinc-200/60 bg-clip-text text-center text-4xl font-semibold tracking-tight text-transparent md:text-6xl md:leading-tight">
+              Your Website Should Not Take Weeks
+            </h2>
+
+            <p className="mt-4 text-zinc-400 text-base max-w-md">
+              Launch online in just 48 hours. Starting from{" "}
+              <span className="text-white font-bold">NPR 4,999</span> · No Hidden Fees
+            </p>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <Link
+                href="/contact"
+                className="flex h-10 w-fit items-center justify-center gap-2 rounded-full bg-white px-5 text-sm font-semibold text-black shadow-md hover:bg-zinc-100 transition-colors"
+              >
                 Start My Project
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-4 h-4" />
               </Link>
-            </Button>
-            <Button
-              size="xl"
-              variant="whatsapp"
-              onClick={handleWhatsApp}
-            >
-              <MessageCircle className="w-5 h-5" />
-              Chat on WhatsApp
-            </Button>
+              <button
+                onClick={handleWhatsApp}
+                className="flex h-10 w-fit items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+              >
+                <MessageCircle className="w-4 h-4 text-green-400" />
+                Chat on WhatsApp
+              </button>
+            </div>
+
+            <p className="mt-5 text-zinc-500 text-sm">
+              Built to keep you hooked. 48-Hour Delivery guaranteed.
+            </p>
           </div>
-          <p className="mt-8 text-slate-500 text-sm">
-            Starting from <span className="text-white font-bold">NPR 4,999</span> · 48-Hour Delivery · No Hidden Fees
-          </p>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
     </section>
   );
 }

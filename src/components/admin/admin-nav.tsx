@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import {
-  Zap, LayoutDashboard, Users, Globe, Star, FileText,
+  LayoutDashboard, Users, Globe, Star, FileText,
   MessageSquare, LogOut, Settings,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
@@ -32,15 +33,13 @@ export function AdminNav() {
   };
 
   return (
-    <nav className="bg-slate-900 text-white shadow-lg">
+    <nav className="bg-brand-primary text-white shadow-lg border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/admin/dashboard" className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-600 to-violet-600 flex items-center justify-center">
-              <Zap className="w-4 h-4 text-white" />
-            </div>
-            <span className="font-extrabold text-lg">
-              TrX<span className="text-blue-400">Web</span>
+          <Link href="/admin/dashboard" className="flex items-center gap-2.5">
+            <Image src="/logo.png" alt="TRx WEB" width={32} height={32} className="rounded-full" />
+            <span className="font-bold text-lg text-white">
+              TRx <span className="text-blue-400">WEB</span>
               <span className="text-xs font-normal text-slate-400 ml-2">Admin</span>
             </span>
           </Link>
@@ -53,8 +52,8 @@ export function AdminNav() {
                 className={cn(
                   "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
                   pathname === link.href
-                    ? "bg-blue-600 text-white"
-                    : "text-slate-400 hover:text-white hover:bg-slate-800"
+                    ? "bg-brand-accent text-white"
+                    : "text-slate-400 hover:text-white hover:bg-white/10"
                 )}
               >
                 <link.icon className="w-4 h-4" />
@@ -73,7 +72,7 @@ export function AdminNav() {
             </Link>
             <button
               onClick={handleLogout}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
             >
               <LogOut className="w-4 h-4" />
               Logout

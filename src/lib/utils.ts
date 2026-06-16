@@ -26,7 +26,7 @@ export function generateWhatsAppMessage(lead: {
   email?: string;
 }): string {
   return encodeURIComponent(
-    `Hello TrX Web! 👋
+    `Hello TRx WEB! 👋
 
 I would like to order a website.
 

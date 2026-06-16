@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import {
-  Users, Globe, MessageSquare, Star, TrendingUp, Clock, CheckCircle2,
+  Users, Globe, MessageSquare, Star, TrendingUp, Clock,
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
@@ -24,67 +24,68 @@ async function getStats() {
         ?.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
         .slice(0, 5) ?? [],
     };
-  } catch {
+  } catch (err) {
+    console.error("Failed to fetch dashboard stats:", err);
     return { totalLeads: 0, newLeads: 0, portfolioItems: 0, testimonials: 0, recentLeads: [] };
   }
 }
 
 export default async function AdminDashboardPage() {
   const supabase = await createClient();
-  const { data: { session } } = await supabase.auth.getSession();
+  const { data: { user } } = await supabase.auth.getUser();
 
-  if (!session) {
+  if (!user) {
     redirect("/admin/login");
   }
 
   const stats = await getStats();
 
   const statCards = [
-    { title: "Total Leads", value: stats.totalLeads, icon: Users, color: "text-blue-600", bg: "bg-blue-50" },
-    { title: "New Leads", value: stats.newLeads, icon: Clock, color: "text-amber-600", bg: "bg-amber-50" },
-    { title: "Portfolio Items", value: stats.portfolioItems, icon: Globe, color: "text-violet-600", bg: "bg-violet-50" },
-    { title: "Testimonials", value: stats.testimonials, icon: Star, color: "text-green-600", bg: "bg-green-50" },
+    { title: "Total Leads",     value: stats.totalLeads,     icon: Users,  color: "text-primary",       bg: "bg-primary/10"       },
+    { title: "New Leads",       value: stats.newLeads,       icon: Clock,  color: "text-brand-hot",     bg: "bg-brand-hot/10"     },
+    { title: "Portfolio Items", value: stats.portfolioItems, icon: Globe,  color: "text-brand-violet",  bg: "bg-brand-violet/10"  },
+    { title: "Testimonials",    value: stats.testimonials,   icon: Star,   color: "text-brand-success", bg: "bg-brand-success/10" },
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background">
       <AdminNav />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-extrabold text-slate-900">Dashboard</h1>
-          <p className="text-slate-500 mt-1">Welcome back! Here&apos;s what&apos;s happening.</p>
+          <h1 className="text-3xl font-bold text-foreground tracking-tight">Dashboard</h1>
+          <p className="text-muted-foreground mt-1">Welcome back! Here&apos;s what&apos;s happening.</p>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {statCards.map((stat) => (
-            <Card key={stat.title}>
+            <Card key={stat.title} className="border-border">
               <CardContent className="p-5">
                 <div className="flex items-center justify-between mb-3">
                   <div className={`w-9 h-9 rounded-lg ${stat.bg} flex items-center justify-center`}>
                     <stat.icon className={`w-5 h-5 ${stat.color}`} />
                   </div>
-                  <TrendingUp className="w-4 h-4 text-green-500" />
+                  <TrendingUp className="w-4 h-4 text-brand-success" />
                 </div>
-                <div className="text-3xl font-extrabold text-slate-900">{stat.value}</div>
-                <div className="text-sm text-slate-500 mt-0.5">{stat.title}</div>
+                <div className="text-3xl font-bold text-foreground">{stat.value}</div>
+                <div className="text-sm text-muted-foreground mt-0.5">{stat.title}</div>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        {/* Quick actions */}
+        {/* Quick actions + recent leads */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card>
+          <Card className="border-border">
             <CardHeader>
               <CardTitle>Quick Actions</CardTitle>
             </CardHeader>
             <CardContent className="grid grid-cols-2 gap-3">
               {[
-                { label: "View Leads", href: "/admin/leads", icon: Users, color: "bg-blue-600" },
-                { label: "Portfolio", href: "/admin/portfolio", icon: Globe, color: "bg-violet-600" },
-                { label: "Testimonials", href: "/admin/testimonials", icon: Star, color: "bg-amber-500" },
-                { label: "Blog Posts", href: "/admin/blog", icon: MessageSquare, color: "bg-green-600" },
+                { label: "View Leads",   href: "/admin/leads",        icon: Users,        color: "bg-primary"       },
+                { label: "Portfolio",    href: "/admin/portfolio",     icon: Globe,        color: "bg-brand-violet"  },
+                { label: "Testimonials", href: "/admin/testimonials",  icon: Star,         color: "bg-brand-hot"     },
+                { label: "Blog Posts",   href: "/admin/blog",          icon: MessageSquare,color: "bg-brand-success" },
               ].map((action) => (
                 <Link
                   key={action.label}
@@ -98,31 +99,31 @@ export default async function AdminDashboardPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-border">
             <CardHeader>
               <CardTitle>Recent Leads</CardTitle>
             </CardHeader>
             <CardContent>
               {stats.recentLeads.length === 0 ? (
-                <p className="text-slate-400 text-sm text-center py-4">No leads yet</p>
+                <p className="text-muted-foreground text-sm text-center py-4">No leads yet</p>
               ) : (
                 <div className="space-y-3">
                   {stats.recentLeads.map((lead: { id: string; status: string; created_at: string }) => (
                     <div key={lead.id} className="flex items-center justify-between text-sm">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
-                          <Users className="w-4 h-4 text-blue-600" />
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                          <Users className="w-4 h-4 text-primary" />
                         </div>
-                        <span className="font-medium text-slate-700">
+                        <span className="font-medium text-foreground">
                           {new Date(lead.created_at).toLocaleDateString()}
                         </span>
                       </div>
-                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold border ${
                         lead.status === "new"
-                          ? "bg-amber-100 text-amber-700"
+                          ? "bg-brand-hot/10 text-brand-hot border-brand-hot/20"
                           : lead.status === "delivered"
-                          ? "bg-green-100 text-green-700"
-                          : "bg-blue-100 text-blue-700"
+                          ? "bg-brand-success/10 text-brand-success border-brand-success/20"
+                          : "bg-primary/10 text-primary border-primary/20"
                       }`}>
                         {lead.status}
                       </span>

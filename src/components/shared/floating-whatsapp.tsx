@@ -10,7 +10,7 @@ export function FloatingWhatsApp() {
 
   const handleOpenWhatsApp = () => {
     const message = encodeURIComponent(
-      "Hello TrX Web! 👋 I'm interested in getting a website. Can you help me?"
+      "Hello TRx WEB! 👋 I'm interested in getting a website. Can you help me?"
     );
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,
@@ -35,7 +35,7 @@ export function FloatingWhatsApp() {
                 <MessageCircle className="w-5 h-5 text-white" />
               </div>
               <div>
-                <p className="font-bold text-slate-900 text-sm">TrX Web</p>
+                <p className="font-bold text-slate-900 text-sm">TRx WEB</p>
                 <p className="text-xs text-green-600 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 inline-block" />
                   Online · Replies instantly

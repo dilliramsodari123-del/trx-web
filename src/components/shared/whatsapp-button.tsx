@@ -12,7 +12,7 @@ interface WhatsAppButtonProps {
 }
 
 export function WhatsAppButton({
-  message = "Hello TrX Web! I'm interested in getting a website.",
+  message = "Hello TRx WEB! I'm interested in getting a website.",
   label = "Chat on WhatsApp",
   size = "lg",
   className,

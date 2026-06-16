@@ -94,7 +94,7 @@ export default function TrackPage() {
           {project && (
             <div className="space-y-8">
               {/* Header */}
-              <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-violet-600 p-6 text-white">
+              <div className="rounded-2xl bg-linear-to-r from-blue-600 to-violet-600 p-6 text-white">
                 <div className="flex items-center justify-between mb-2">
                   <h2 className="text-2xl font-extrabold">{project.client_name}</h2>
                   <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold">

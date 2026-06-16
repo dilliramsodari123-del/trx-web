@@ -1,7 +1,7 @@
 import type { PricingPlan, NavItem } from "@/types";
 
-export const SITE_NAME = "TrX Web";
-export const SITE_TAGLINE = "Professional Websites Delivered in 48 Hours";
+export const SITE_NAME = "TRx WEB";
+export const SITE_TAGLINE = "WE BUILD YOUR DIGITAL FUTURE";
 export const SITE_DESCRIPTION =
   "Launch your business online with a fast, secure and professionally designed website starting from just NPR 4,999. Nepal's fastest website delivery company.";
 export const WHATSAPP_NUMBER =
@@ -298,3 +298,29 @@ export const COMPARISON_TABLE = {
     "Included",
   ],
 };
+
+export const MARQUEE_TRUST_ITEMS = [
+  { label: "✓ 48-Hour Delivery" },
+  { label: "⚡ Next.js Powered" },
+  { label: "🔒 SSL Included" },
+  { label: "📱 Mobile First" },
+  { label: "🎯 SEO Ready" },
+  { label: "🚀 Vercel Hosted" },
+  { label: "💬 WhatsApp Support" },
+  { label: "✓ 100+ Projects" },
+  { label: "⭐ 4.9/5 Rating" },
+  { label: "🇳🇵 Made in Nepal" },
+  { label: "✓ Free Revisions" },
+  { label: "💰 Starts NPR 4,999" },
+];
+
+export const CALCULATOR_ADDONS = [
+  { id: "extra-pages",  label: "Extra 5 Pages",                  price: 1500 },
+  { id: "logo",         label: "Logo Design",                     price: 2000 },
+  { id: "content",      label: "Content Writing (5 pages)",       price: 3000 },
+  { id: "seo",          label: "Advanced SEO Package",            price: 2500 },
+  { id: "whatsapp",     label: "WhatsApp Chat Integration",       price: 500  },
+  { id: "booking",      label: "Booking / Calendar System",       price: 3000 },
+  { id: "gallery",      label: "Photo Gallery",                   price: 1000 },
+  { id: "multilingual", label: "Bilingual (EN + NP)",             price: 4000 },
+];

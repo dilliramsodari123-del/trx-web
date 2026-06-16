@@ -94,7 +94,7 @@ export function OrderFormSection() {
 
   if (isSubmitted) {
     return (
-      <SectionWrapper id="contact" className="py-24 bg-slate-50">
+      <SectionWrapper id="contact" className="py-24 bg-brand-primary">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -116,7 +116,7 @@ export function OrderFormSection() {
                 size="lg"
                 onClick={() => {
                   const msg = encodeURIComponent(
-                    "Hello TrX Web! I just submitted a website request. Looking forward to hearing from you!"
+                    "Hello TRx WEB! I just submitted a website request. Looking forward to hearing from you!"
                   );
                   openWhatsApp(WHATSAPP_NUMBER, msg);
                 }}
@@ -139,16 +139,25 @@ export function OrderFormSection() {
   }
 
   return (
-    <SectionWrapper id="contact" className="py-24 bg-slate-50">
+    <SectionWrapper id="contact" className="py-24 bg-brand-primary">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Order Now"
-          title="Tell Us About Your Website"
-          subtitle="Fill in your requirements and we'll get back to you on WhatsApp within 1 hour."
+          badge="Start Your Project"
+          title={<span className="text-white">Tell Us About Your Website</span>}
+          subtitle={<span className="text-slate-400">Fill in your requirements and we&apos;ll get back to you on WhatsApp within 1 hour.</span>}
         />
 
-        <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8">
+        <div className="bg-white rounded-3xl shadow-2xl ring-1 ring-blue-600/10 overflow-hidden">
+          {/* Top accent bar */}
+          <div className="h-1 bg-linear-to-r from-[#0066ff] to-violet-600" />
+          <div className="p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Section: Contact Info */}
+            <div className="flex items-center gap-3 pb-2 border-b border-slate-100">
+              <span className="w-6 h-6 rounded-full bg-[#0066ff] text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <span className="text-sm font-semibold text-slate-700 font-display">Contact Info</span>
+            </div>
+
             {/* Row 1 */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -201,6 +210,12 @@ export function OrderFormSection() {
                 error={errors.email?.message}
                 {...register("email")}
               />
+            </div>
+
+            {/* Section: Project Details */}
+            <div className="flex items-center gap-3 pb-2 border-b border-slate-100">
+              <span className="w-6 h-6 rounded-full bg-[#0066ff] text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <span className="text-sm font-semibold text-slate-700 font-display">Project Details</span>
             </div>
 
             {/* Website Type */}
@@ -308,6 +323,12 @@ export function OrderFormSection() {
               />
             </div>
 
+            {/* Section: Submit */}
+            <div className="flex items-center gap-3 pb-2 border-b border-slate-100">
+              <span className="w-6 h-6 rounded-full bg-[#0066ff] text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <span className="text-sm font-semibold text-slate-700 font-display">Submit</span>
+            </div>
+
             {/* Submit */}
             <div className="pt-2">
               <Button
@@ -335,6 +356,7 @@ export function OrderFormSection() {
               </p>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </SectionWrapper>

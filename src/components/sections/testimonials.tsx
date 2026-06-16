@@ -1,19 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { SectionWrapper, SectionHeading } from "@/components/shared/section-wrapper";
-import { motion, AnimatePresence } from "@/components/shared/motion";
+import React, { memo, useRef } from "react";
+import { motion, useInView } from "@/components/shared/motion";
+import { SectionTopGlow } from "@/components/shared/section-top-glow";
+import { TestimonialsBadge } from "@/components/shared/testimonials-badge";
+import { cn } from "@/lib/utils";
+import { Star } from "lucide-react";
 
-const STATIC_TESTIMONIALS = [
+const TESTIMONIALS = [
   {
     id: "1",
     client_name: "Ramesh Shrestha",
     business_name: "Shrestha Traders",
     review:
-      "TrX Web delivered our business website in exactly 48 hours. The quality is outstanding and our sales have already increased since launch. Best investment for our business!",
+      "TRx WEB delivered our business website in exactly 48 hours. The quality is outstanding and our sales have already increased since launch. Best investment for our business!",
     rating: 5,
-    photo_url: null,
     website_type: "Business Website",
   },
   {
@@ -23,7 +24,6 @@ const STATIC_TESTIMONIALS = [
     review:
       "I was skeptical at first but they delivered a beautiful restaurant website on time with online ordering. Our customers love it and we've seen a huge increase in orders.",
     rating: 5,
-    photo_url: null,
     website_type: "Restaurant Website",
   },
   {
@@ -33,7 +33,6 @@ const STATIC_TESTIMONIALS = [
     review:
       "Got our MVP website ready in exactly 48 hours. The team was super responsive on WhatsApp and the result far exceeded our expectations. Will definitely use again!",
     rating: 5,
-    photo_url: null,
     website_type: "Startup MVP",
   },
   {
@@ -43,139 +42,170 @@ const STATIC_TESTIMONIALS = [
     review:
       "My portfolio website looks absolutely stunning. The animations and design are world-class. I've already received 5 new client inquiries since launching. Worth every paisa!",
     rating: 5,
-    photo_url: null,
     website_type: "Portfolio Website",
+  },
+  {
+    id: "5",
+    client_name: "Arjun Karki",
+    business_name: "Karki Electronics",
+    review:
+      "Switched from a freelancer who took 3 months to deliver nothing. TRx WEB had our e-commerce store live in 2 days. The results speak for themselves!",
+    rating: 5,
+    website_type: "E-Commerce Website",
+  },
+  {
+    id: "6",
+    client_name: "Maya Thapa",
+    business_name: "Thapa Boutique",
+    review:
+      "Incredible value for money. Our boutique website has a stunning design that beats many expensive agencies. Highly recommend for any Nepal business!",
+    rating: 5,
+    website_type: "Business Website",
   },
 ];
 
-function StarRating({ rating }: { rating: number }) {
-  return (
-    <div className="flex gap-0.5">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <Star
-          key={i}
-          className={`w-4 h-4 ${i < rating ? "fill-amber-400 text-amber-400" : "text-slate-200"}`}
-        />
-      ))}
-    </div>
-  );
-}
+const AVATAR_COLORS = [
+  "from-blue-500 to-violet-500",
+  "from-green-500 to-teal-500",
+  "from-orange-500 to-amber-500",
+  "from-pink-500 to-rose-500",
+  "from-cyan-500 to-blue-500",
+  "from-violet-500 to-purple-500",
+];
 
-function Avatar({ name }: { name: string }) {
+const col1 = TESTIMONIALS.slice(0, 2);
+const col2 = TESTIMONIALS.slice(2, 4);
+const col3 = TESTIMONIALS.slice(4, 6);
+
+function Avatar({ name, index }: { name: string; index: number }) {
   const initials = name
     .split(" ")
     .map((n) => n[0])
     .join("")
     .slice(0, 2)
     .toUpperCase();
-  const colors = [
-    "from-blue-500 to-violet-500",
-    "from-green-500 to-teal-500",
-    "from-orange-500 to-amber-500",
-    "from-pink-500 to-rose-500",
-  ];
-  const color = colors[name.charCodeAt(0) % colors.length];
   return (
     <div
-      className={`w-12 h-12 rounded-full bg-gradient-to-br ${color} flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}
+      className={`w-10 h-10 rounded-full bg-linear-to-br ${
+        AVATAR_COLORS[index % AVATAR_COLORS.length]
+      } flex items-center justify-center text-white font-bold text-xs shrink-0`}
     >
       {initials}
     </div>
   );
 }
 
-export function TestimonialsSection() {
-  const [current, setCurrent] = useState(0);
-  const total = STATIC_TESTIMONIALS.length;
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % total);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [total]);
-
-  const prev = () => setCurrent((c) => (c - 1 + total) % total);
-  const next = () => setCurrent((c) => (c + 1) % total);
-
+const TestimonialsColumn = memo(function TestimonialsColumn({
+  className,
+  testimonials,
+  duration = 20,
+}: {
+  className?: string;
+  testimonials: typeof TESTIMONIALS;
+  duration?: number;
+}) {
   return (
-    <SectionWrapper className="py-24 bg-slate-50" id="testimonials">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeading
-          badge="Client Love"
-          title="What Our Clients Say"
-          subtitle="Real reviews from real clients across Nepal who trusted TrX Web with their online presence."
-        />
+    <div className={cn("testimonials-marquee-track group", className)}>
+      <div
+        className="testimonials-marquee flex flex-col gap-6 group-hover:[animation-play-state:paused]"
+        style={{ "--marquee-duration": `${duration}s` } as React.CSSProperties}
+      >
+        {[...new Array(2)].map((_, idx) => (
+          <React.Fragment key={idx}>
+            {testimonials.map((t, i) => (
+              <div
+                key={`${t.id}-${idx}`}
+                className="relative w-full max-w-xs overflow-hidden rounded-3xl border-2 border-secondary/40 bg-linear-to-b from-secondary/10 to-card p-10 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 group"
+              >
+                {/* Inset shimmer shadow */}
+                <div className="absolute inset-0 rounded-3xl shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] pointer-events-none" />
+                <div className="from-primary/10 to-card absolute -top-5 -left-5 -z-10 h-40 w-40 rounded-full bg-linear-to-b blur-md" />
 
-        <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -40 }}
-              transition={{ duration: 0.4 }}
-              className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 md:p-10"
-            >
-              <Quote className="w-10 h-10 text-blue-100 mb-4" />
-              <p className="text-lg md:text-xl text-slate-700 leading-relaxed mb-8">
-                &ldquo;{STATIC_TESTIMONIALS[current].review}&rdquo;
-              </p>
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-4">
-                  <Avatar name={STATIC_TESTIMONIALS[current].client_name} />
-                  <div>
-                    <p className="font-bold text-slate-900">
-                      {STATIC_TESTIMONIALS[current].client_name}
-                    </p>
-                    <p className="text-sm text-slate-500">
-                      {STATIC_TESTIMONIALS[current].business_name}
-                    </p>
+                <div className="relative z-10 flex gap-0.5 mb-3">
+                  {[...Array(t.rating)].map((_, si) => (
+                    <Star
+                      key={si}
+                      className="w-4 h-4 fill-amber-400 text-amber-400"
+                    />
+                  ))}
+                </div>
+
+                <p className="relative z-10 text-foreground/90 text-sm leading-relaxed">
+                  {t.review}
+                </p>
+
+                <div className="relative z-10 mt-5 flex items-center gap-2">
+                  <Avatar name={t.client_name} index={i} />
+                  <div className="flex flex-col">
+                    <span className="text-foreground text-sm font-medium leading-5 tracking-tight">
+                      {t.client_name}
+                    </span>
+                    <span className="text-muted-foreground text-xs leading-5 tracking-tight">
+                      {t.business_name}
+                    </span>
                   </div>
                 </div>
-                <div className="flex flex-col items-end gap-2">
-                  <StarRating rating={STATIC_TESTIMONIALS[current].rating} />
-                  <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
-                    {STATIC_TESTIMONIALS[current].website_type}
-                  </span>
-                </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+            ))}
+          </React.Fragment>
+        ))}
+      </div>
+    </div>
+  );
+});
 
-          {/* Navigation */}
-          <div className="flex items-center justify-between mt-6">
-            <div className="flex gap-2">
-              {STATIC_TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    i === current ? "w-8 bg-blue-600" : "w-2 bg-slate-300"
-                  }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
-              ))}
-            </div>
-            <div className="flex gap-2">
-              <button
-                onClick={prev}
-                className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
-                aria-label="Previous"
-              >
-                <ChevronLeft className="w-4 h-4 text-slate-600" />
-              </button>
-              <button
-                onClick={next}
-                className="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition-colors"
-                aria-label="Next"
-              >
-                <ChevronRight className="w-4 h-4 text-slate-600" />
-              </button>
-            </div>
+export function TestimonialsSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  return (
+    <section id="testimonials" className="bg-background overflow-hidden py-24 relative">
+      <SectionTopGlow />
+      <div className="mx-auto max-w-7xl px-4">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-[540px] mb-16 text-center"
+        >
+          <div className="flex justify-center mb-4">
+            <TestimonialsBadge />
           </div>
+
+          <h2 className="from-foreground/60 via-foreground to-foreground/60 dark:from-muted-foreground/55 dark:via-foreground dark:to-muted-foreground/55 mt-5 bg-linear-to-r bg-clip-text text-center text-4xl font-semibold tracking-tighter text-transparent md:text-[54px] md:leading-[60px]">
+            What Our Clients Say
+          </h2>
+
+          <div className="flex items-center justify-center gap-1 mt-4">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className="w-4 h-4 fill-amber-400 text-amber-400"
+              />
+            ))}
+            <span className="text-amber-500 font-bold ml-2">4.9 / 5</span>
+          </div>
+
+          <p className="mt-3 text-muted-foreground text-sm">
+            Based on 50+ reviews from businesses across Nepal
+          </p>
+        </motion.div>
+
+        <div className="flex justify-center gap-6 max-h-[740px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
+          <TestimonialsColumn testimonials={col1} duration={15} />
+          <TestimonialsColumn
+            testimonials={col2}
+            className="hidden md:block"
+            duration={19}
+          />
+          <TestimonialsColumn
+            testimonials={col3}
+            className="hidden lg:block"
+            duration={17}
+          />
         </div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }
