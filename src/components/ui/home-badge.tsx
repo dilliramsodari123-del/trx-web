@@ -7,7 +7,7 @@ export default function HomeBadge() {
   return (
     <div className="group relative mb-2 inline-block cursor-pointer rounded-full bg-slate-900 p-px text-xs leading-6 font-semibold no-underline shadow-2xl shadow-zinc-900">
       <span className="absolute inset-0 overflow-hidden rounded-full">
-        <span className="bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(var(--color-primary),0.6)_0%,rgba(var(--color-primary),0)_75%)] absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+        <span className="bg-[radial-gradient(75%_100%_at_50%_0%,rgba(244,63,94,0.6)_0%,rgba(244,63,94,0)_75%)] absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
       </span>
       <div className="ring-ring/10 relative z-10 flex items-center space-x-2 rounded-full bg-zinc-950 px-4 py-0.5 ring-1">
         <span className="text-primary">⚡ Nepal&apos;s Fastest Website Studio</span>

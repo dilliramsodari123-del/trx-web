@@ -20,7 +20,7 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faq" className="relative overflow-hidden py-24">
+    <section id="faq" className="relative overflow-hidden py-14 sm:py-20 md:py-24">
       <SectionTopGlow />
       {/* Glow blobs */}
       <div className="bg-primary/15 absolute top-1/2 -right-20 z-[-1] h-64 w-64 rounded-full opacity-80 blur-3xl select-none" />
@@ -35,7 +35,7 @@ export function FaqSection() {
           </div>
         </div>
 
-        <h2 className="mx-auto mt-6 max-w-xl text-center text-4xl font-semibold tracking-tight md:text-[54px] md:leading-[60px] mb-12">
+        <h2 className="mx-auto mt-6 max-w-xl text-center text-2xl sm:text-3xl md:text-4xl lg:text-[54px] lg:leading-[60px] font-semibold tracking-tight mb-8 sm:mb-12">
           Questions?{" "}
           <span className="from-foreground via-primary to-foreground bg-linear-to-r bg-clip-text text-transparent">
             We&apos;ve got answers
@@ -50,7 +50,7 @@ export function FaqSection() {
               onClick={() =>
                 setSelectedIndex(selectedIndex === faqIndex ? -1 : faqIndex)
               }
-              className="from-secondary/40 to-secondary/10 cursor-pointer rounded-2xl border border-white/10 bg-linear-to-b p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.06)_inset] transition-all duration-200 hover:border-primary/20"
+              className="cursor-pointer rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-all duration-200 hover:border-primary/30"
             >
               <div className="flex items-start justify-between gap-4">
                 <h3 className="m-0 font-medium text-foreground">
@@ -84,7 +84,7 @@ export function FaqSection() {
         </div>
 
         {/* WhatsApp card */}
-        <div className="mt-8 from-secondary/40 to-secondary/10 rounded-2xl border border-white/10 bg-linear-to-b p-6 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.06)_inset]">
+        <div className="mt-8 rounded-2xl border border-border bg-card p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full bg-green-500/15 flex items-center justify-center shrink-0">
               <MessageCircle className="w-5 h-5 text-green-500" />

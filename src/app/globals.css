@@ -233,6 +233,33 @@
 }
 .testimonials-marquee {
   animation: testimonials-scroll var(--marquee-duration, 20s) linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0); /* promote to GPU layer */
+}
+
+/* Horizontal marquees (trust strip) */
+.animate-marquee,
+.animate-marquee-reverse {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .testimonials-marquee,
+  .animate-marquee,
+  .animate-marquee-reverse {
+    animation-play-state: paused;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────

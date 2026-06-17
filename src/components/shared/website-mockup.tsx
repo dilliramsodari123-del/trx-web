@@ -21,7 +21,7 @@ interface WebsiteMockupProps {
 const shadowClasses = {
   sm: "shadow-md",
   lg: "shadow-xl",
-  xl: "shadow-2xl shadow-blue-500/20",
+  xl: "shadow-2xl shadow-primary/20",
 };
 
 export function WebsiteMockup({
@@ -58,7 +58,7 @@ export function WebsiteMockup({
       </div>
 
       {/* Screenshot */}
-      <div className="relative aspect-[16/10] bg-slate-100">
+      <div className="relative aspect-[16/10] bg-muted">
         <Image
           src={imageUrl}
           alt={altText}

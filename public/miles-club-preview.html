@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PACE RUN CLUB | MILE PLUS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@400;700&amp;family=JetBrains+Mono:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#8bf2ff",
+                    "on-tertiary-fixed-variant": "#004f56",
+                    "on-surface-variant": "#e8bcb9",
+                    "on-secondary-fixed": "#161e00",
+                    "primary-container": "#ff5356",
+                    "on-tertiary-container": "#002f34",
+                    "on-secondary-container": "#556d00",
+                    "secondary-fixed": "#c3f400",
+                    "tertiary": "#6cd6e3",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#ffb3af",
+                    "surface": "#131313",
+                    "on-secondary-fixed-variant": "#3c4d00",
+                    "on-error": "#690005",
+                    "on-tertiary": "#00363b",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "inverse-surface": "#e5e2e1",
+                    "surface-container-highest": "#353534",
+                    "primary-fixed": "#ffdad8",
+                    "surface-bright": "#393939",
+                    "on-primary": "#68000e",
+                    "on-primary-fixed": "#410006",
+                    "tertiary-fixed-dim": "#6cd6e3",
+                    "outline": "#af8785",
+                    "tertiary-container": "#279fab",
+                    "on-primary-fixed-variant": "#930018",
+                    "secondary-container": "#c3f400",
+                    "surface-variant": "#353534",
+                    "background": "#131313",
+                    "primary": "#ffb3af",
+                    "on-surface": "#e5e2e1",
+                    "on-secondary": "#283500",
+                    "on-primary-container": "#5c000b",
+                    "error": "#ffb4ab",
+                    "surface-container": "#201f1f",
+                    "inverse-on-surface": "#313030",
+                    "outline-variant": "#5e3f3d",
+                    "on-tertiary-fixed": "#001f23",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#bf0023",
+                    "surface-tint": "#ffb3af",
+                    "secondary-fixed-dim": "#abd600",
+                    "on-error-container": "#ffdad6",
+                    "secondary": "#ffffff",
+                    "surface-container-high": "#2a2a2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "section-gap-lg": "80px",
+                    "section-gap-sm": "40px",
+                    "container-margin": "24px",
+                    "gutter": "16px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Hanken Grotesk"],
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg-mobile": ["Anton"],
+                    "display-hero": ["Anton"],
+                    "headline-lg": ["Anton"],
+                    "headline-md": ["Anton"],
+                    "label-caps": ["JetBrains Mono"],
+                    "data-point": ["Anton"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "display-hero": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "data-point": ["32px", {"lineHeight": "1.0", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutalist-border {
+            border: 2px solid #ffb3af;
+        }
+        .text-stroke-white {
+            -webkit-text-stroke: 1px white;
+            color: transparent;
+        }
+        .bento-card {
+            background-color: #1A1A1A;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bento-card:hover {
+            transform: scale(1.02);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffb3af;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background border-b-2 border-primary dark:border-primary w-full h-20 fixed top-0 z-50">
+<div class="flex justify-between items-center px-container-margin w-full max-w-7xl mx-auto h-full">
+<div class="font-display-hero text-headline-md text-primary dark:text-primary tracking-tighter">
+                PACE RUN CLUB
+            </div>
+<div class="hidden md:flex gap-gutter">
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors" href="#">Runs</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors" href="#">Community</a>
+<a class="font-label-caps text-label-caps text-on-surface hover:text-primary transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-base">
+<button class="bg-primary-container text-on-primary-container font-label-caps px-base py-2 hover:scale-95 duration-100 transition-all uppercase tracking-widest text-[10px]">
+                    JOIN CLUB
+                </button>
+<span class="material-symbols-outlined text-primary text-3xl cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative h-[921px] w-full flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale brightness-50" data-alt="A high-intensity action shot of diverse urban runners sprinting through a city street at dawn. The lighting is cinematic with long shadows and warm golden hour glows. The scene captures the high-energy, brutalist aesthetic of the PACE RUN CLUB with high contrast and sharp focus on the athletic movement and grit of the pavement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGXDAhPFTXBsa9dO9Zwlu7xMooR8PZB4GqpLD--2KoEoVorB6T63DOPY5wWVFT2se37bn-8lxYBcZVpX1nRLs21c9nL0U1H1xUjTHyuS8R7KH5utzN9f4xXZ-nQ6haYnSkM2NQPXf-GMHZQ5OTVrnbv0Tosi8UXufKPyZ6XY6E5WmfUTqtF84BI2w-8ch6ynqbhfeg8xyit4MxchaCRaJOZVmboqUqntfS4vKYWN1ZvV2qngYZStsCUJPVzPc9G5C6ohj5SMU1YeA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full max-w-7xl px-container-margin text-center">
+<p class="font-label-caps text-label-caps text-primary mb-base tracking-[0.4em]">STREET LEVEL ATHLETICISM</p>
+<h1 class="font-display-hero text-[120px] md:text-[200px] text-white leading-none mb-6 italic transform -skew-x-6">
+                    MILE <span class="text-primary">PLUS</span>
+</h1>
+<div class="flex flex-col md:flex-row gap-gutter justify-center items-center">
+<button class="bg-primary text-on-primary font-display-hero text-headline-md px-12 py-4 hover:scale-105 transition-transform">
+                        START RUNNING
+                    </button>
+<button class="border-2 border-white text-white font-display-hero text-headline-md px-12 py-4 hover:bg-white hover:text-black transition-all">
+                        VIEW SCHEDULE
+                    </button>
+</div>
+</div>
+</section>
+<!-- Stats / Why Run With Us -->
+<section class="py-section-gap-lg px-container-margin max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="border-l-4 border-primary p-base">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">COMMUNITY SIZE</h3>
+<p class="font-data-point text-data-point text-primary">2.4K+</p>
+<p class="font-body-md text-on-surface opacity-70">Active city runners across 12 zones.</p>
+</div>
+<div class="border-l-4 border-primary p-base">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">WEEKLY VOLUME</h3>
+<p class="font-data-point text-data-point text-primary">180 KM</p>
+<p class="font-body-md text-on-surface opacity-70">Combined distance per major session.</p>
+</div>
+<div class="border-l-4 border-primary p-base">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">RUN FREQUENCY</h3>
+<p class="font-data-point text-data-point text-primary">DAILY</p>
+<p class="font-body-md text-on-surface opacity-70">Morning and evening crew availability.</p>
+</div>
+<div class="border-l-4 border-primary p-base">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">ELEVATION GAIN</h3>
+<p class="font-data-point text-data-point text-primary">1200 M</p>
+<p class="font-body-md text-on-surface opacity-70">Average vertical challenge per week.</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Upcoming Saturday Runs -->
+<section class="py-section-gap-lg bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto px-container-margin">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-base">
+<div>
+<h2 class="font-display-hero text-headline-lg text-white">UPCOMING <span class="text-primary">SATURDAY</span> RUNS</h2>
+<p class="font-body-lg text-on-surface-variant">The heart of Mile Plus. Every Saturday. No exceptions.</p>
+</div>
+<span class="font-label-caps text-label-caps border-b border-primary text-primary cursor-pointer pb-1">VIEW ALL VOLUMES</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-6 grid-rows-2 gap-4 h-auto md:h-[800px]">
+<!-- Main Card -->
+<div class="md:col-span-3 md:row-span-2 bento-card relative overflow-hidden group">
+<img class="w-full h-full object-cover brightness-50 group-hover:scale-110 transition-transform duration-700" data-alt="A cinematic wide shot of a large group of urban runners gathered in a city square at dawn, preparing for a marathon-style run. The mood is high-energy and collective, with a focus on the gritty urban architecture and the vibrant PACE RED accents in the running gear. High-contrast lighting highlights the textures of the concrete and the intensity of the athletes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyvlj9BOZNHjz7x9DkylHtz8M2ZLNsPIRs7rn3b5APqPC-xDAfEgWD_flGgT1_QhmOa08t0l0aOBbYpXoPSp_jVD7rMyyDG3daCVdmeD0nmAkR4rAZ3otvF-UU0mTv4lvgQS7tyvF2WuWmXwTkTisA81tHA-pubz-v0nwgIicy3HGqdvXOCueqrp6CxLKRkobNIHkeVJTLZI-wOm3JOq2WjQvvl98VsGYmTjjQVK0lXz1XrQwwkOPgStIICkp71jWO0gotno5YLQ"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-between">
+<div class="bg-primary text-on-primary w-fit px-4 py-1 font-label-caps text-label-caps">VOLUME 22</div>
+<div>
+<h3 class="font-display-hero text-headline-lg text-white mb-2 uppercase">CHITWAN GYM MEET</h3>
+<div class="flex gap-4">
+<span class="flex items-center gap-1 font-label-caps text-label-caps text-primary"><span class="material-symbols-outlined text-sm" data-icon="calendar_today">calendar_today</span> SEPT 14</span>
+<span class="flex items-center gap-1 font-label-caps text-label-caps text-primary"><span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span> 05:30 AM</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Card 1 -->
+<div class="md:col-span-3 md:row-span-1 bento-card relative overflow-hidden group">
+<img class="w-full h-full object-cover brightness-50 group-hover:scale-110 transition-transform duration-700" data-alt="A close-up shot of professional running shoes hitting a wet asphalt road, creating a dramatic splash of water. The visual style is gritty and editorial, using a high-contrast black and red color palette. The lighting is harsh and moody, reflecting the brutalist urban aesthetic of the Mile Plus Run Club." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7pzAsnnMHge2Mksf6XqRz1Oc49cRuGDBpoN_MYcGVk7PYpUgJdZAmx6nVWduwvL15jhp7JTzWXLe8pfdApV0gzswAlpY4d_OnseeK0uZuZSVOrUkCCzjUue5bA1EgxERXlBH3B7HnMM516ZCj_bzaWCXs_wjiFVaPRBUN9gl3XLA_Fj46Ysy9sMoa0pJI6J4SWsUgy3stYzyotbQnxwJJLtImD8fBJBk_-tc1cLohKp6vuNztnKrM2T6qdBK4GiZWsODag4bLROM"/>
+<div class="absolute inset-0 p-8 flex flex-col justify-end">
+<h3 class="font-display-hero text-headline-md text-white mb-1 uppercase">COFFEE RAVE RUN</h3>
+<p class="font-body-md text-on-surface-variant">Post-run caffeine &amp; social session.</p>
+</div>
+</div>
+<!-- Small Card 1 -->
+<div class="md:col-span-1.5 bento-card border-2 border-outline-variant p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="trending_up">trending_up</span>
+<div>
+<h4 class="font-display-hero text-headline-md text-white">TEMPO VOL. 21</h4>
+<p class="font-label-caps text-label-caps text-primary">8.5KM FAST</p>
+</div>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-1.5 bento-card bg-primary p-6 flex flex-col justify-between">
+<span class="material-symbols-outlined text-on-primary text-4xl" data-icon="groups">groups</span>
+<div>
+<h4 class="font-display-hero text-headline-md text-on-primary">SOCIAL 5K</h4>
+<p class="font-label-caps text-label-caps text-on-primary-container">ALL ABILITIES</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Grid -->
+<section class="py-section-gap-lg px-container-margin max-w-7xl mx-auto">
+<h2 class="font-display-hero text-headline-lg text-white mb-12 text-center">THE <span class="text-stroke-white">COLLECTIVE</span></h2>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+<!-- Gallery items - using placeholder logic for image variation -->
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Action shot of a male runner in urban setting, high energy, black and white style with red color splash." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSXcMNlvc3Qsq36fhOZNUIPB32nneQk4YIym1rtCHg6MCkl7QMlkqMmA6vpLUJQWp-SXryfOtFMzNGOwMU8zMCrUEjHtHtmtfiiz9NccRhzh09rIaDpHHkAenCYn8pmU-uZRf03NcncDfRn2Ovrr_nXBWwq6VwQo1OIS4UPbtNHIspSXFBe2kI6725zs8ZTw847w0qbtRi5R9XTD8PTapVH6m822TvlPneqGINVppXr7cb8QgbZHczGjTFpsc0VlhzhixcSNn5pMU"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Female runner sprinting on an empty highway during sunrise, high contrast, warm lighting, brutalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGpPQ4DmbGjnOWX9TFi0-W0vpCZWt6fk9zdXsd7ukUq9C6wAZzjjc2ubhj_Wg183TdHIuZjMdAes2s3dikz-g7LAk7QSi3Qkp-xO3Wb74Q9U9ZoPzVJcZv73OGjjS8sYW13xIgMZWDvIoVfsziS1UHvjmBXvNQ89as84V5gqrR9MffLCn0qXLz-5mJLjwFPUvm9OLhpBHvTp_y61hvrZvVqcrYF5lbRvP1wCvDCbGeRNbyrjvkrlLNtxTzo6BiC7GM9i-30DE2Agw"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Close up of a runner's face with sweat and determination, high detail, professional editorial sports photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFjxreUKGEqsZ9Ky6YID72VAJlB1TbCcm-1MeTxDwLHYvdrU2bgr75Wr2vnYH2Z_WNFgp7Awiwys1rdRGV_3KMAXtjGmtYIouxQRw5zCkykL8IMr0o7fmBiBMMj-l-e_X7tv_VcGW_0EjJhY5hmc7NFeJZ2NqsyhX7byMV-QOIjwCnALhVr3Fkc3Ovmp2PalEGvL9f-YquNQp3NWOzGdFWQkfRqTfLoP97BEe_h2wW6GCyNPV1VW6VGCPnMf1lrW9Doy9yl5hd0HM"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A group of runners' silhouettes against a neon city backdrop, energetic urban night run, vibrant colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1geQEj05e5Srxs6H8wV4tfKPWkM2AgQkgo1ShtNBACykpwMvs_aMxoql2XV46b11Jv4mIdHNwGpq-Ouim_HJ5c1PclCtzGCXxK6C2c-Mx42CQdWZN_nyuQuHhyRl-jC3PFc9dIxYnZdfhV8Hib0VdYHloHp3aZ71GRMaosBxqnXz9KH_cZX7BV7J5UbpABWXevMq04S4Zr6Uc5aHQ_yFwjqrEoaqk0zvdiGjcWwIvV5Wt4mt1z28b9lM_5SlY3TUKXPkYWdrmEc8"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="High-angle shot of a running track, geometric patterns, minimalist and brutalist sports architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKkWoslHhvz4hbgZoVT6gFI39Zr-cIJZU6gx6POoy4Id-pPf5iPCVHBhnfj_KmynDzUFjWFcJavIp2j9sQdD7vdOaBVViXiC3f4qp4B3i3hZmc1J8GQ5oR4d9h8zkQ8Msr6FrS_Q8h3U8UvreG6dTXaHfMwgN8xLuEQZNSn_cfN8Hijd3rTylnaDxXiceipgTNMtnc3GyA3H292WvqrP84ukbGxdpHaWnKL69UBp11undIZ0_Cuzf_kG0onkVoFt-qFPmpFMvuzvc"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Runner jumping over an urban obstacle, parkour influence, dynamic motion blur, high impact photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLA3qLf3pXqxEChgOankqtxDUJk2jBNRmEZlGhD2nO510VS8ZqrdUn_hIbVVt2Wg21hhO4aGifmesZaBG8LP-IEkjhrhmYoUAI1H-_XiPq5sTLPSCX6ildyK00zxd4UVvlqCZ-NNxOGPIVkGoWdBjC2Maiszx9HPZqpa42fQhuNx0Fo7y4r9IQR6scVCjeeQsbjwM6RVY5DTjvGtk4fhzWyvhyw0vFK_tNKBV1Gz_L3PnaazeFa7P3V9BvHe1OtyLkgY7MXDoFnvc"/>
+</div>
+<!-- Repeat for more grid impact -->
+<div class="aspect-square bg-surface-container relative overflow-hidden hidden md:block">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Runner in the rain, dramatic lighting, reflections on wet pavement, high contrast black and red mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqQlVfq15GMDYHHCwxQlV4MI258J6JXLiJ7jSc2wzrEkeiM-MavsUtkXpkuGeil80uX7uYnU_SV5bBoeJOE_Q1_1fF-XPKpkD9rdLKhWMDy5mxCNMXKQV9fjSEl_1GcGn1x-wWgAiYTKe4W8vE__t6NaGXexk9cPs9d_Sq2j04VxPotXfiDR_bQCGx7Kk8QzEzNPUx44OagPuwNMrr0N2Q4_8kLGBQO3J36zoRSQBcr5zY9eyzWJA8dGRsDGxFoEjehbS9xIX2q0E"/>
+</div>
+<div class="aspect-square bg-surface-container relative overflow-hidden hidden md:block">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Aerial drone view of a running group moving through a park, geometric formations, green and black color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_oSckgkxLlf0XjF8JJhcYdFzncfG7bvvrEPMvD0pOVOTTq1qdIwjYvuEDXe23uduo5KwrtI5UYbzlnEYZ2lRGAX_p0bUXYckXjYNrHECxbebSWkpi-zda1vUXYTI1oyFdxa--qY0QqnPcxHHabk3_6l3yAVb0i0aYsfI4qCMCuABWCIFKEfj9LeONeT6CV5lcKcfbDmweK928BuHW7wMNdmfKXxtItDSgdFt4wBXWUDLNLC9m0V7LO46Ia1TS5Xo2XPI95kSmJT0"/>
+</div>
+</div>
+<div class="mt-section-gap-sm text-center">
+<button class="font-label-caps text-label-caps px-8 py-3 border-2 border-primary text-primary hover:bg-primary hover:text-on-primary transition-all uppercase tracking-widest">
+                    JOIN THE CONVERSATION
+                </button>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-section-gap-lg bg-primary">
+<div class="max-w-7xl mx-auto px-container-margin grid grid-cols-1 md:grid-cols-2 gap-section-gap-sm items-center">
+<div>
+<h2 class="font-display-hero text-headline-lg text-on-primary leading-tight uppercase">NEVER MISS <br/>A STARTING <br/>WHISTLE.</h2>
+</div>
+<div class="flex flex-col gap-4">
+<p class="font-body-lg text-on-primary-container mb-4">Get notified about pop-up runs, limited drop gear, and exclusive club events.</p>
+<div class="flex flex-col md:flex-row gap-0">
+<input class="bg-transparent border-b-2 border-on-primary-container text-on-primary-container placeholder:text-on-primary-container/50 focus:outline-none font-label-caps p-4 flex-grow border-t-0 border-l-0 border-r-0" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="bg-on-primary-container text-primary font-label-caps px-8 py-4 hover:bg-black transition-colors">SUBSCRIBE</button>
+</div>
+<p class="font-label-caps text-[10px] text-on-primary-container opacity-60">BY SUBSCRIBING YOU AGREE TO OUR PRIVACY POLICY AND TERMS OF SERVICE.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant w-full py-section-gap-sm">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-margin w-full max-w-7xl mx-auto gap-gutter">
+<div class="font-display-hero text-headline-md text-primary">PACE RUN CLUB</div>
+<div class="flex gap-gutter font-label-caps text-label-caps text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant opacity-80 hover:opacity-100 transition-opacity uppercase text-[10px] tracking-widest">
+                © 2024 PACE RUN CLUB. ALL RIGHTS RESERVED.
+            </div>
+</div>
+</footer>
+<!-- SideNavBar (Simulated Hidden Mobile Nav) -->
+<div class="hidden h-screen w-64 fixed right-0 top-0 bg-surface-container dark:bg-surface-container border-l-2 border-outline-variant z-[100] p-base flex flex-col shadow-2xl" id="mobile-nav">
+<div class="flex justify-between items-center mb-8 px-base">
+<h2 class="font-display-hero text-headline-md text-primary">MENU</h2>
+<button class="material-symbols-outlined text-white" onclick="document.getElementById('mobile-nav').classList.add('hidden')">close</button>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-label-caps text-label-caps p-4 bg-primary text-on-primary font-bold" href="#">HOME</a>
+<a class="font-label-caps text-label-caps p-4 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">RUNS</a>
+<a class="font-label-caps text-label-caps p-4 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">COMMUNITY</a>
+<a class="font-label-caps text-label-caps p-4 text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">ABOUT</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-base flex flex-col gap-2">
+<div class="flex items-center gap-2 p-4">
+<span class="material-symbols-outlined text-primary" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">SETTINGS</span>
+</div>
+<div class="flex items-center gap-2 p-4">
+<span class="material-symbols-outlined text-primary" data-icon="logout">logout</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">LOGOUT</span>
+</div>
+</div>
+</div>
+<!-- Micro-interaction JS -->
+<script>
+        // Simple parallax on hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroImg = document.querySelector('section img');
+            if(heroImg) {
+                heroImg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Interactive hover for bento cards
+        const cards = document.querySelectorAll('.bento-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.borderColor = '#ffb3af';
+            });
+            card.addEventListener('mouseleave', () => {
+                if(!card.classList.contains('bg-primary')) {
+                    card.style.borderColor = 'transparent';
+                }
+            });
+        });
+    </script>
+</body></html>

@@ -70,8 +70,8 @@ export function PortfolioManager({ items: initial }: { items: PortfolioItem[] })
       </div>
 
       {showForm && (
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <h3 className="font-bold text-slate-900 mb-4">New Portfolio Item</h3>
+        <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
+          <h3 className="font-bold text-foreground mb-4">New Portfolio Item</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Title</Label>
@@ -129,7 +129,7 @@ export function PortfolioManager({ items: initial }: { items: PortfolioItem[] })
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {items.map((item) => (
-          <div key={item.id} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+          <div key={item.id} className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm">
             {item.thumbnail_url && (
               <div className="relative h-40">
                 <Image
@@ -143,17 +143,17 @@ export function PortfolioManager({ items: initial }: { items: PortfolioItem[] })
             )}
             <div className="p-4">
               <div className="flex items-start justify-between mb-1">
-                <h3 className="font-bold text-slate-900 text-sm">{item.title}</h3>
-                <span className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
+                <h3 className="font-bold text-foreground text-sm">{item.title}</h3>
+                <span className="text-xs bg-secondary text-muted-foreground px-2 py-0.5 rounded-full">
                   {item.category}
                 </span>
               </div>
-              <p className="text-xs text-slate-500 mb-3 line-clamp-2">{item.description}</p>
+              <p className="text-xs text-muted-foreground mb-3 line-clamp-2">{item.description}</p>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => toggleFeatured(item.id, item.is_featured)}
                   className={`p-1.5 rounded-lg transition-colors ${
-                    item.is_featured ? "text-amber-500 bg-amber-50" : "text-slate-400 hover:bg-slate-100"
+                    item.is_featured ? "text-amber-500 bg-amber-50" : "text-muted-foreground hover:bg-accent"
                   }`}
                 >
                   <Star className={`w-4 h-4 ${item.is_featured ? "fill-amber-400" : ""}`} />
@@ -163,7 +163,7 @@ export function PortfolioManager({ items: initial }: { items: PortfolioItem[] })
                     href={item.live_url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-1.5 rounded-lg text-blue-500 hover:bg-blue-50 transition-colors"
+                    className="p-1.5 rounded-lg text-primary hover:bg-primary/10 transition-colors"
                   >
                     <ExternalLink className="w-4 h-4" />
                   </a>

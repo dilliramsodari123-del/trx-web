@@ -5,7 +5,10 @@ export const SITE_TAGLINE = "WE BUILD YOUR DIGITAL FUTURE";
 export const SITE_DESCRIPTION =
   "Launch your business online with a fast, secure and professionally designed website starting from just NPR 4,999. Nepal's fastest website delivery company.";
 export const WHATSAPP_NUMBER =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "9779800000000";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "9779846908072";
+export const PHONE_NUMBER = "9846908072";
+export const EMAIL = "techraj687yt@gmail.com";
+export const FACEBOOK_URL = "https://www.facebook.com/trxweb687";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://trxweb.com.np";
 
@@ -315,12 +318,12 @@ export const MARQUEE_TRUST_ITEMS = [
 ];
 
 export const CALCULATOR_ADDONS = [
-  { id: "extra-pages",  label: "Extra 5 Pages",                  price: 1500 },
-  { id: "logo",         label: "Logo Design",                     price: 2000 },
-  { id: "content",      label: "Content Writing (5 pages)",       price: 3000 },
-  { id: "seo",          label: "Advanced SEO Package",            price: 2500 },
-  { id: "whatsapp",     label: "WhatsApp Chat Integration",       price: 500  },
-  { id: "booking",      label: "Booking / Calendar System",       price: 3000 },
-  { id: "gallery",      label: "Photo Gallery",                   price: 1000 },
-  { id: "multilingual", label: "Bilingual (EN + NP)",             price: 4000 },
+  { id: "extra-pages",  label: "Extra 5 Pages",              price: 1000 },
+  { id: "logo",         label: "Logo Design",                 price: 1000 },
+  { id: "content",      label: "Content Writing (5 pages)",   price: 1000 },
+  { id: "seo",          label: "Advanced SEO Package",        price: 1000 },
+  { id: "whatsapp",     label: "WhatsApp Chat Integration",   price: 1000 },
+  { id: "booking",      label: "Booking / Calendar System",   price: 1000 },
+  { id: "gallery",      label: "Photo Gallery",               price: 1000 },
+  { id: "multilingual", label: "Bilingual (EN + NP)",         price: 1000 },
 ];

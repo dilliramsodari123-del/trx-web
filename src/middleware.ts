@@ -2,12 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 
 export async function middleware(request: NextRequest) {
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-pathname", request.nextUrl.pathname);
-
-  const response = NextResponse.next({
-    request: { headers: requestHeaders },
-  });
+  const response = NextResponse.next();
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -43,6 +38,7 @@ export async function middleware(request: NextRequest) {
   return response;
 }
 
+// Only run middleware on admin routes — demos/public pages run at the edge without auth overhead
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/admin/:path*", "/auth/callback"],
 };

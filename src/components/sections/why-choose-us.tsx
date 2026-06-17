@@ -34,7 +34,7 @@ export function WhyChooseUsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 260, damping: 22, delay: i * 0.08 }}
-                className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-linear-to-b from-secondary/50 to-secondary/10 p-6 text-center"
+                className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-border bg-card shadow-sm p-6 text-center"
               >
                 <s.icon className={`w-5 h-5 ${s.color} mb-1 opacity-80`} />
                 <p className={`text-3xl font-bold tracking-tight ${s.color}`}>{s.value}</p>

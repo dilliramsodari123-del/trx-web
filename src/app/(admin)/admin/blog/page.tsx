@@ -15,51 +15,51 @@ export default async function AdminBlogPage() {
     .order("created_at", { ascending: false });
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background">
       <AdminNav />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-extrabold text-slate-900">Blog Posts</h1>
+          <h1 className="text-3xl font-bold text-foreground tracking-tight">Blog Posts</h1>
           <Link
             href="/admin/blog/new"
-            className="flex items-center gap-2 bg-linear-to-r from-blue-600 to-violet-600 text-white px-4 py-2.5 rounded-xl text-sm font-bold hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 bg-linear-to-r from-primary to-brand-violet text-white px-4 py-2.5 rounded-xl text-sm font-bold hover:opacity-90 transition-opacity"
           >
             <Plus className="w-4 h-4" />
             New Post
           </Link>
         </div>
-        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
+        <div className="bg-card rounded-2xl border border-border overflow-hidden shadow-sm">
           <table className="w-full">
-            <thead className="bg-slate-50 border-b border-slate-100">
+            <thead className="bg-secondary/50 border-b border-border">
               <tr>
                 {["Title", "Status", "Published", "Actions"].map((h) => (
                   <th
                     key={h}
-                    className="px-4 py-3 text-left text-xs font-bold text-slate-500 uppercase"
+                    className="px-4 py-3 text-left text-xs font-bold text-muted-foreground uppercase"
                   >
                     {h}
                   </th>
                 ))}
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-border">
               {(posts ?? []).map((post) => (
-                <tr key={post.id} className="hover:bg-slate-50">
-                  <td className="px-4 py-3 font-semibold text-sm text-slate-900">
+                <tr key={post.id} className="hover:bg-accent/40 transition-colors">
+                  <td className="px-4 py-3 font-semibold text-sm text-foreground">
                     {post.title}
                   </td>
                   <td className="px-4 py-3">
                     <span
-                      className={`text-xs font-bold px-2.5 py-1 rounded-full ${
+                      className={`text-xs font-bold px-2.5 py-1 rounded-full border ${
                         post.is_published
-                          ? "bg-green-100 text-green-700"
-                          : "bg-slate-100 text-slate-600"
+                          ? "bg-brand-success/10 text-brand-success border-brand-success/20"
+                          : "bg-secondary text-muted-foreground border-border"
                       }`}
                     >
                       {post.is_published ? "Published" : "Draft"}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm text-slate-500">
+                  <td className="px-4 py-3 text-sm text-muted-foreground">
                     {post.published_at
                       ? new Date(post.published_at).toLocaleDateString()
                       : "—"}
@@ -67,7 +67,7 @@ export default async function AdminBlogPage() {
                   <td className="px-4 py-3">
                     <Link
                       href={`/admin/blog/${post.id}/edit`}
-                      className="text-xs font-semibold text-blue-600 hover:text-blue-700"
+                      className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors"
                     >
                       Edit
                     </Link>
@@ -76,7 +76,7 @@ export default async function AdminBlogPage() {
               ))}
               {(!posts || posts.length === 0) && (
                 <tr>
-                  <td colSpan={4} className="px-4 py-12 text-center text-slate-400">
+                  <td colSpan={4} className="px-4 py-12 text-center text-muted-foreground">
                     No blog posts yet. Create your first one!
                   </td>
                 </tr>

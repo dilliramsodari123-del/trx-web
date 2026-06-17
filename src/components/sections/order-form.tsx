@@ -94,7 +94,7 @@ export function OrderFormSection() {
 
   if (isSubmitted) {
     return (
-      <SectionWrapper id="contact" className="py-24 bg-brand-primary">
+      <SectionWrapper id="contact" className="py-24 bg-secondary/20">
         <div className="max-w-2xl mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -104,10 +104,10 @@ export function OrderFormSection() {
             <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
               <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h2 className="text-3xl font-extrabold text-slate-900 mb-4">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
               Your Request Has Been Sent!
             </h2>
-            <p className="text-slate-500 mb-8">
+            <p className="text-muted-foreground mb-8">
               WhatsApp has opened with your details pre-filled. Our team will respond within 1 hour. You can also click below to send directly.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -139,23 +139,23 @@ export function OrderFormSection() {
   }
 
   return (
-    <SectionWrapper id="contact" className="py-24 bg-brand-primary">
+    <SectionWrapper id="contact" className="py-12 sm:py-16 md:py-24 bg-secondary/20">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Start Your Project"
-          title={<span className="text-white">Tell Us About Your Website</span>}
-          subtitle={<span className="text-slate-400">Fill in your requirements and we&apos;ll get back to you on WhatsApp within 1 hour.</span>}
+          title="Tell Us About Your Website"
+          subtitle="Fill in your requirements and we'll get back to you on WhatsApp within 1 hour."
         />
 
-        <div className="bg-white rounded-3xl shadow-2xl ring-1 ring-blue-600/10 overflow-hidden">
+        <div className="bg-card rounded-2xl sm:rounded-3xl shadow-2xl ring-1 ring-primary/10 overflow-hidden border border-border">
           {/* Top accent bar */}
-          <div className="h-1 bg-linear-to-r from-[#0066ff] to-violet-600" />
-          <div className="p-8">
+          <div className="h-1 bg-linear-to-r from-primary to-brand-violet" />
+          <div className="p-4 sm:p-6 md:p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Section: Contact Info */}
-            <div className="flex items-center gap-3 pb-2 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-[#0066ff] text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
-              <span className="text-sm font-semibold text-slate-700 font-display">Contact Info</span>
+            <div className="flex items-center gap-3 pb-2 border-b border-dashed border-border">
+              <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <span className="text-sm font-semibold text-foreground font-display">Contact Info</span>
             </div>
 
             {/* Row 1 */}
@@ -213,9 +213,9 @@ export function OrderFormSection() {
             </div>
 
             {/* Section: Project Details */}
-            <div className="flex items-center gap-3 pb-2 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-[#0066ff] text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
-              <span className="text-sm font-semibold text-slate-700 font-display">Project Details</span>
+            <div className="flex items-center gap-3 pb-2 border-b border-dashed border-border">
+              <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <span className="text-sm font-semibold text-foreground font-display">Project Details</span>
             </div>
 
             {/* Website Type */}
@@ -324,9 +324,9 @@ export function OrderFormSection() {
             </div>
 
             {/* Section: Submit */}
-            <div className="flex items-center gap-3 pb-2 border-b border-slate-100">
-              <span className="w-6 h-6 rounded-full bg-[#0066ff] text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
-              <span className="text-sm font-semibold text-slate-700 font-display">Submit</span>
+            <div className="flex items-center gap-3 pb-2 border-b border-dashed border-border">
+              <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <span className="text-sm font-semibold text-foreground font-display">Submit</span>
             </div>
 
             {/* Submit */}
@@ -351,7 +351,7 @@ export function OrderFormSection() {
                   </>
                 )}
               </Button>
-              <p className="text-center text-xs text-slate-400 mt-3">
+              <p className="text-center text-xs text-muted-foreground mt-3">
                 Your details will be sent via WhatsApp. We respond within 1 hour.
               </p>
             </div>

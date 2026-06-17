@@ -70,7 +70,7 @@ export function GiftWebsiteSection() {
                 viewport={{ once: true }}
                 transition={{ type: "spring", stiffness: 300, damping: 20, delay: index * 0.08 }}
                 whileHover={{ y: -4 }}
-                className="rounded-2xl p-5 border border-border bg-linear-to-b from-secondary/40 to-secondary/10 shadow-[0px_2px_0px_0px_rgba(255,255,255,0.05)_inset] hover:border-primary/30 hover:shadow-primary/10 hover:shadow-lg transition-all duration-300 cursor-pointer"
+                className="rounded-2xl p-5 border border-border bg-card shadow-sm hover:border-primary/30 hover:shadow-primary/10 hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
                 <div
                   className={`w-10 h-10 rounded-xl bg-linear-to-br ${item.color} flex items-center justify-center mb-3`}

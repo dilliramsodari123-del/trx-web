@@ -12,9 +12,9 @@ export default function PortfolioPage() {
   return (
     <>
       {/* Hero — always dark */}
-      <section className="relative bg-[#09090b] py-28 pt-36 text-center overflow-hidden">
+      <section className="relative bg-[#09090b] py-20 pt-28 sm:py-28 sm:pt-36 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-125 h-75 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-70 h-45 sm:w-125 sm:h-75 rounded-full bg-primary/20 blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full bg-brand-violet/15 blur-3xl" />
           <div
             className="absolute inset-0 opacity-[0.035]"
@@ -29,10 +29,10 @@ export default function PortfolioPage() {
             <span>✦</span>
             Our Work
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 sm:mb-6 leading-tight">
             Websites We&apos;ve Built
           </h1>
-          <p className="text-xl text-white/50 max-w-xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/50 max-w-xl mx-auto">
             Real websites. Real businesses. Real results. All delivered in 48 hours or less.
           </p>
         </div>

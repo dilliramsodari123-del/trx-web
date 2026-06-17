@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TRX | Full Website Delivery in 48 Hours</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;600&amp;family=Kalam&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Glassmorphism base */
+        .glass-panel {
+            background: rgba(28, 25, 23, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .hud-border {
+            position: relative;
+        }
+        .hud-border::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 10px; height: 10px;
+            border-top: 2px solid #ffb2b7;
+            border-left: 2px solid #ffb2b7;
+        }
+        .hud-border::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0; width: 10px; height: 10px;
+            border-bottom: 2px solid #ffb2b7;
+            border-right: 2px solid #ffb2b7;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 178, 183, 0.1);
+            position: absolute;
+            animation: scan 4s linear infinite;
+        }
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        .circuit-line {
+            stroke-dasharray: 100;
+            animation: dash 5s linear infinite;
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: -200; }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#003824",
+                        "secondary-container": "#6001d1",
+                        "surface-bright": "#39393b",
+                        "surface-container": "#201f22",
+                        "on-surface": "#e5e1e4",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "surface-container-highest": "#353437",
+                        "on-primary": "#67001b",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#40000d",
+                        "on-secondary-fixed": "#25005a",
+                        "on-primary-fixed-variant": "#92002a",
+                        "tertiary": "#4edea3",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-tertiary-container": "#00311f",
+                        "on-secondary-fixed-variant": "#5a00c6",
+                        "on-secondary": "#3f008e",
+                        "on-surface-variant": "#e3bdbf",
+                        "brand-hot": "#f97316",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "secondary-fixed-dim": "#d2bbff",
+                        "on-background": "#e5e1e4",
+                        "on-primary-container": "#5b0017",
+                        "outline": "#aa888a",
+                        "on-secondary-container": "#c9aeff",
+                        "background": "#131315",
+                        "primary-fixed-dim": "#ffb2b7",
+                        "secondary": "#d2bbff",
+                        "surface-dim": "#131315",
+                        "error": "#ffb4ab",
+                        "inverse-surface": "#e5e1e4",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#002113",
+                        "surface-variant": "#353437",
+                        "surface-container-low": "#1c1b1d",
+                        "secondary-fixed": "#eaddff",
+                        "primary": "#ffb2b7",
+                        "inverse-primary": "#bc0b3b",
+                        "canvas-dark-card": "#1c1917",
+                        "inverse-on-surface": "#313032",
+                        "muted-foreground": "#b5b5b5",
+                        "border-dashed": "rgba(255, 255, 255, 0.1)",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface": "#131315",
+                        "primary-fixed": "#ffdadb",
+                        "on-error": "#690005",
+                        "tertiary-container": "#00a572",
+                        "surface-tint": "#ffb2b7",
+                        "surface-container-high": "#2a2a2c",
+                        "primary-container": "#ff516a",
+                        "outline-variant": "#5b4041"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "xl": "32px",
+                        "gutter": "16px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "margin-mobile": "16px",
+                        "max-width": "1400px",
+                        "margin-desktop": "32px",
+                        "lg": "24px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "body-base": ["Inter"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-bold": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "handwritten-accent": ["Kalam"],
+                        "display-lg-mobile": ["Space Grotesk"],
+                        "label-caps": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-base": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "handwritten-accent": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-base overflow-x-hidden">
+<!-- Full-page background Shader -->
+
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full h-16 bg-background/80 backdrop-blur-xl border-b border-dashed border-border-dashed z-50">
+<div class="max-w-[1400px] mx-auto px-margin-desktop flex justify-between items-center h-full">
+<div class="font-display-lg text-headline-md tracking-tighter text-primary italic">TRX</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-primary border-b-2 border-primary pb-1" href="#">Process</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Portfolio</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Stack</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">Client Portal</a>
+<a class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-on-surface transition-colors" href="#">FAQ</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">Log In</button>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-all active:scale-95">Order Now</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center pt-16 px-margin-mobile md:px-margin-desktop z-10">
+<!-- 3D Central Core -->
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+
+</div>
+<!-- Hero Content HUD -->
+<div class="relative z-20 text-center max-w-4xl">
+<div class="inline-flex items-center gap-2 px-4 py-1 glass-panel border-primary/30 mb-8 animate-pulse-glow">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-caps text-label-caps tracking-widest uppercase text-primary">System Ready: Rapid Web Deployment</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-6 leading-tight">
+            FULL WEBSITE DELIVERY <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary uppercase">in 48 hrs</span>
+</h1>
+<p class="font-body-base text-on-surface-variant text-lg max-w-2xl mx-auto mb-10">
+            Professional high-performance digital presence for a flat fee of <span class="text-primary font-bold">4999 NRS</span>. Engineered for speed, conversion, and absolute pixel perfection.
+        </p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="bg-primary text-on-primary-fixed px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest font-bold hover:shadow-[0_0_30px_rgba(255,178,183,0.3)] transition-all">
+                Start Your Project
+            </button>
+<button class="glass-panel text-on-surface px-10 py-4 font-label-caps text-label-caps uppercase tracking-widest border border-dashed border-border-dashed hover:border-primary transition-all">
+                View Portfolio
+            </button>
+</div>
+</div>
+<!-- Terminal Metrics Footer (Hero) -->
+<div class="absolute bottom-12 w-full max-w-[1400px] px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="glass-panel p-4 hud-border">
+<div class="text-primary font-label-caps text-[10px] tracking-tighter uppercase mb-1">Turnaround Time</div>
+<div class="font-display-lg text-headline-md tracking-tighter">48 hrs</div>
+<div class="h-1 bg-surface-container-highest mt-2 overflow-hidden">
+<div class="h-full bg-primary w-[98%]"></div>
+</div>
+</div>
+<div class="glass-panel p-4 hud-border">
+<div class="text-primary font-label-caps text-[10px] tracking-tighter uppercase mb-1">Fixed Price</div>
+<div class="font-display-lg text-headline-md tracking-tighter">4999 NRS</div>
+<div class="h-1 bg-surface-container-highest mt-2 overflow-hidden">
+<div class="h-full bg-secondary w-full"></div>
+</div>
+</div>
+<div class="glass-panel p-4 hud-border">
+<div class="text-primary font-label-caps text-[10px] tracking-tighter uppercase mb-1">Tech Stack</div>
+<div class="font-display-lg text-headline-md tracking-tighter">Modern</div>
+<div class="h-1 bg-surface-container-highest mt-2 overflow-hidden">
+<div class="h-full bg-tertiary w-3/4"></div>
+</div>
+</div>
+<div class="glass-panel p-4 hud-border">
+<div class="text-primary font-label-caps text-[10px] tracking-tighter uppercase mb-1">Optimization</div>
+<div class="font-display-lg text-headline-md tracking-tighter">SEO+</div>
+<div class="h-1 bg-surface-container-highest mt-2 overflow-hidden">
+<div class="h-full bg-primary w-full"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Content Grid Section -->
+<section class="relative py-24 px-margin-mobile md:px-margin-desktop max-w-[1400px] mx-auto z-10">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Bento Card 1: Rapid Development Pipeline -->
+<div class="md:col-span-8 glass-panel p-8 group relative overflow-hidden">
+<div class="scanline"></div>
+<div class="flex justify-between items-start mb-12">
+<div>
+<h3 class="font-display-lg text-headline-md text-on-surface mb-2">Rapid Development Pipeline</h3>
+<p class="text-on-surface-variant max-w-md">Our proprietary workflow automates the grunt work, allowing developers to focus on high-impact custom design in record time.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="h-32 bg-surface-container/50 border border-dashed border-border-dashed rounded-lg flex items-center justify-center">
+<div class="text-center">
+<div class="text-primary font-bold">48H</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant">Max Delay</div>
+</div>
+</div>
+<div class="h-32 bg-surface-container/50 border border-dashed border-border-dashed rounded-lg flex items-center justify-center">
+<div class="text-center">
+<div class="text-primary font-bold">100%</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant">Responsive</div>
+</div>
+</div>
+<div class="h-32 bg-surface-container/50 border border-dashed border-border-dashed rounded-lg flex items-center justify-center">
+<div class="text-center">
+<div class="text-primary font-bold">LIGHT</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant">Vite-Engine</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bento Card 2: SEO & Performance -->
+<div class="md:col-span-4 glass-panel p-8 flex flex-col justify-between border-tertiary/20">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-tertiary" data-icon="speed" data-weight="fill">speed</span>
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-tertiary">Peak Performance</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-on-surface mb-4">SEO Optimized</h3>
+<p class="text-on-surface-variant text-sm">Every site we deliver at the 4999 NRS tier comes pre-configured with industry-standard SEO best practices and ultra-fast loading times.</p>
+</div>
+<button class="mt-8 py-3 w-full border border-dashed border-tertiary/50 text-tertiary font-label-caps text-label-caps uppercase tracking-widest hover:bg-tertiary/10 transition-colors">
+                Check Speed Specs
+            </button>
+</div>
+<!-- Bento Card 3: Modern Tech Stack -->
+<div class="md:col-span-4 glass-panel p-8 border-secondary/20">
+<div class="aspect-square mb-6 bg-surface-container-highest/30 rounded-full flex items-center justify-center relative">
+<div class="absolute inset-0 border-2 border-dashed border-secondary/20 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<span class="material-symbols-outlined text-secondary text-5xl" data-icon="terminal">terminal</span>
+</div>
+<h3 class="font-display-lg text-headline-md text-on-surface mb-2">Modern Tech Stack</h3>
+<p class="text-on-surface-variant text-sm">Built with React, Tailwind, and Node.js. We don't use dated templates; we build clean, modular components.</p>
+</div>
+<!-- Bento Card 4: Client Portal -->
+<div class="md:col-span-8 glass-panel p-8 relative overflow-hidden bg-gradient-to-br from-surface-container-low to-transparent">
+<div class="absolute right-0 top-0 w-1/2 h-full opacity-20 pointer-events-none">
+<svg class="w-full h-full text-primary" viewbox="0 0 200 200">
+<path class="circuit-line" d="M0 100 Q 50 50 100 100 T 200 100" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<path class="circuit-line" d="M0 80 Q 50 30 100 80 T 200 80" fill="none" stroke="currentColor" stroke-width="0.5" style="animation-delay: -1s;"></path>
+<path class="circuit-line" d="M0 120 Q 50 70 100 120 T 200 120" fill="none" stroke="currentColor" stroke-width="0.5" style="animation-delay: -2s;"></path>
+</svg>
+</div>
+<div class="relative z-10">
+<h3 class="font-display-lg text-headline-md text-on-surface mb-4">Client Command Center</h3>
+<p class="text-on-surface-variant max-w-sm mb-8">Track your build in real-time. Upload assets, chat with your lead dev, and watch your 48 hr countdown.</p>
+<div class="flex gap-4">
+<div class="glass-panel p-3 border-none flex-1">
+<div class="text-[10px] text-on-surface-variant uppercase mb-1">Active Builds</div>
+<div class="text-tertiary flex items-center gap-1 font-bold">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+                            34 LIVE
+                        </div>
+</div>
+<div class="glass-panel p-3 border-none flex-1">
+<div class="text-[10px] text-on-surface-variant uppercase mb-1">Queue Status</div>
+<div class="text-primary font-bold">READY</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Vertical Side Borders (Blueprint Aesthetic) -->
+<div class="fixed top-0 left-0 h-full w-[32px] border-r border-dashed border-border-dashed pointer-events-none z-0 hidden lg:block"></div>
+<div class="fixed top-0 right-0 h-full w-[32px] border-l border-dashed border-border-dashed pointer-events-none z-0 hidden lg:block"></div>
+<!-- Footer -->
+<footer class="relative mt-24 bg-surface-container-lowest border-t border-dashed border-border-dashed py-12 z-10">
+<div class="max-w-[1400px] mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+<div>
+<div class="font-display-lg text-headline-md text-on-surface mb-2 italic">TRX</div>
+<p class="font-body-base text-body-base text-muted-foreground uppercase tracking-widest max-w-sm leading-relaxed">
+                © 2024 TRX RAPID WEB SOLUTIONS. ALL RIGHTS RESERVED. 48 HRS DELIVERY GUARANTEED.
+            </p>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="font-body-base text-body-base text-muted-foreground hover:text-primary transition-colors underline" href="#">Client Terms</a>
+<a class="font-body-base text-body-base text-muted-foreground hover:text-primary transition-colors underline" href="#">Hosting Policy</a>
+<a class="font-body-base text-body-base text-muted-foreground hover:text-primary transition-colors underline" href="#">Project Status</a>
+<a class="font-body-base text-body-base text-muted-foreground hover:text-primary transition-colors underline" href="#">Affiliates</a>
+<a class="font-body-base text-body-base text-muted-foreground hover:text-primary transition-colors underline" href="#">Contact</a>
+</div>
+</div>
+<!-- Bottom atmospheric glow -->
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] bg-primary/10 blur-[100px] rounded-full -z-10"></div>
+</footer>
+<script>
+    // Micro-interaction for hover states on glass panels
+    document.querySelectorAll('.glass-panel').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+
+    // Simple terminal typewriter effect simulation
+    const metrics = document.querySelectorAll('.font-display-lg');
+    metrics.forEach(metric => {
+        const originalText = metric.innerText;
+        if(originalText.includes('hrs') || originalText.includes('NRS') || originalText.includes('+')) {
+            metric.addEventListener('mouseenter', () => {
+               let iterations = 0;
+               const interval = setInterval(() => {
+                   metric.innerText = originalText.split("")
+                    .map((letter, index) => {
+                        if(index < iterations) return originalText[index];
+                        return String.fromCharCode(65 + Math.floor(Math.random() * 26))
+                    })
+                    .join("");
+                   
+                   if(iterations >= originalText.length) clearInterval(interval);
+                   iterations += 1/3;
+               }, 30);
+            });
+        }
+    });
+</script>
+</body></html>

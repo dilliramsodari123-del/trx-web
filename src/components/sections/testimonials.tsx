@@ -5,7 +5,8 @@ import { motion, useInView } from "@/components/shared/motion";
 import { SectionTopGlow } from "@/components/shared/section-top-glow";
 import { TestimonialsBadge } from "@/components/shared/testimonials-badge";
 import { cn } from "@/lib/utils";
-import { Star } from "lucide-react";
+import { Star, MessageCircle } from "lucide-react";
+import { WHATSAPP_NUMBER } from "@/lib/constants";
 
 const TESTIMONIALS = [
   {
@@ -115,7 +116,7 @@ const TestimonialsColumn = memo(function TestimonialsColumn({
             {testimonials.map((t, i) => (
               <div
                 key={`${t.id}-${idx}`}
-                className="relative w-full max-w-xs overflow-hidden rounded-3xl border-2 border-secondary/40 bg-linear-to-b from-secondary/10 to-card p-10 shadow-xl hover:scale-[1.02] hover:shadow-2xl transition-all duration-300 group"
+                className="relative w-full max-w-xs overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-card p-5 sm:p-7 md:p-8 shadow-lg hover:scale-[1.02] hover:shadow-2xl hover:border-primary/30 transition-all duration-300 group"
               >
                 {/* Inset shimmer shadow */}
                 <div className="absolute inset-0 rounded-3xl shadow-[0px_2px_0px_0px_rgba(255,255,255,0.1)_inset] pointer-events-none" />
@@ -158,8 +159,15 @@ export function TestimonialsSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
+  const handleShareExperience = () => {
+    const msg = encodeURIComponent(
+      "Hello TRx WEB! I wanted to share my experience with your service."
+    );
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+  };
+
   return (
-    <section id="testimonials" className="bg-background overflow-hidden py-24 relative">
+    <section id="testimonials" className="bg-background overflow-hidden py-16 md:py-24 relative">
       <SectionTopGlow />
       <div className="mx-auto max-w-7xl px-4">
         <motion.div
@@ -192,7 +200,7 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-6 max-h-[740px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
+        <div className="flex justify-center gap-4 sm:gap-6 max-h-[460px] sm:max-h-[600px] md:max-h-[740px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
           <TestimonialsColumn testimonials={col1} duration={15} />
           <TestimonialsColumn
             testimonials={col2}
@@ -204,6 +212,19 @@ export function TestimonialsSection() {
             className="hidden lg:block"
             duration={17}
           />
+        </div>
+
+        {/* Share CTA — mvpblocks pattern with hairline borders */}
+        <div className="-mt-8 flex justify-center">
+          <button
+            onClick={handleShareExperience}
+            className="group border-primary/30 bg-background text-foreground hover:border-primary/60 hover:bg-primary/10 relative inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition-all active:scale-95"
+          >
+            <div className="via-primary/40 absolute inset-x-0 -top-px mx-auto h-px w-3/4 bg-linear-to-r from-transparent to-transparent" />
+            <div className="via-primary/40 absolute inset-x-0 -bottom-px mx-auto h-px w-3/4 bg-linear-to-r from-transparent to-transparent" />
+            <MessageCircle className="text-primary h-4 w-4" />
+            Share your experience
+          </button>
         </div>
       </div>
     </section>

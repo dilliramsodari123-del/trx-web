@@ -48,7 +48,7 @@ This project implements **mvpblocks professional design standards** with:
 - **React 18.3** - UI library
 - **TypeScript 5.9** - Type safety
 - **Tailwind CSS 4** - Utility-first styling
-- **Framer Motion 12** - Advanced animations
+- **Framer Motion 12** - Advanced animations 
 
 ### Components & UI
 - **Radix UI** - Headless component library

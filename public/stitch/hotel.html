@@ -1,0 +1,370 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fine Diners Cafe | Artisanal Food &amp; Coffee</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e5e2e1",
+                        "primary": "#07231d",
+                        "primary-fixed-dim": "#afcdc3",
+                        "on-primary-fixed-variant": "#314c44",
+                        "on-secondary-fixed-variant": "#534600",
+                        "primary-container": "#1e3932",
+                        "error": "#ba1a1a",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#86a399",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary-fixed": "#fbe278",
+                        "surface-bright": "#fcf9f8",
+                        "surface-tint": "#48645c",
+                        "on-error-container": "#93000a",
+                        "surface-container": "#f0edec",
+                        "secondary": "#6e5d00",
+                        "inverse-on-surface": "#f3f0ef",
+                        "inverse-surface": "#313030",
+                        "outline": "#727975",
+                        "on-surface": "#1c1b1b",
+                        "tertiary-fixed-dim": "#a1d494",
+                        "on-tertiary-fixed-variant": "#23501e",
+                        "tertiary": "#002601",
+                        "surface": "#fcf9f8",
+                        "on-tertiary-container": "#78a96d",
+                        "surface-dim": "#dcd9d9",
+                        "on-surface-variant": "#414846",
+                        "tertiary-fixed": "#bcf0ae",
+                        "on-secondary-container": "#736200",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed": "#002201",
+                        "outline-variant": "#c1c8c4",
+                        "secondary-fixed-dim": "#dec65f",
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#afcdc3",
+                        "surface-container-highest": "#e5e2e1",
+                        "primary-fixed": "#cbe9df",
+                        "surface-container-low": "#f6f3f2",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#221b00",
+                        "tertiary-container": "#0f3d0d",
+                        "secondary-container": "#f8df75",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#04201a",
+                        "on-secondary": "#ffffff",
+                        "background": "#fcf9f8",
+                        "on-background": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "max-width": "1280px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Libre Caslon Text"],
+                        "display-lg-mobile": ["Libre Caslon Text"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "headline-sm": ["Libre Caslon Text"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "headline-md": ["Libre Caslon Text"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dot-leader::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px dotted #727975;
+            margin: 0 8px;
+            position: relative;
+            bottom: 6px;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(150px, auto);
+            gap: 16px;
+        }
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 bg-surface-bright border-b border-outline-variant dark:border-outline">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-secondary-container flex items-center justify-center">
+<img alt="Fine Diners Cafe Logo" class="w-full h-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6F8lzubBWzYXcoSg18LJ5Z2nplQtSCJ0AJjpJBHuABSONSHajxITnAJ98ePEhyV_gJN1mHNGdxp7LbfGRg7Fh5RDr90usDYLZPEFRjKSXMim9wGOSIJ76FERSgVEjSBvzx4o5MndzOAIOLQHsqvXkeSYohoExSStw4unJprWzVqZ-eiWRKIM8gvTLdDmzVE0-R8yQRJrvGcYgSX9MtC6iiw4lItWI5Je5FGSWw08VT-YYc9j5oNTfJNyLfgZacK4QQVpifOk7lwE">
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-headline-sm text-primary dark:text-primary-fixed-dim">Fine Diners Cafe</h1>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-label-md text-primary border-b-2 border-primary py-1" href="#">Home</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Menu</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-md hover:opacity-90 active:scale-95 transition-all">
+            Order Now
+        </button>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Atmospheric cafe interior" class="w-full h-full object-cover brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaaw2JEFzPgTdX-eubocHqCX4ruy3gx73SQeWm_yc5-X8r9_tUFK62SItLyZhWA_jRWnyzfXjINhmUE03h1DbBiodmoGO66B9P15sgZFWs5QQaFWuyrx-TgZqcWbw-AZR9QNQ9KhGsn4IuyS8iTIKDhsOdGLr4SBaNn9UcK2g3Fnu7WHFFWWJjWCVJN-sCIw4XgNEInY7LoyWIqAgIj_t_Fsahy7ZuVCP9lVkSeHuUG5ILCKW3tpG0mKhRDEVsELyKnbQ5I6dohS4">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop w-full">
+<div class="max-w-2xl text-on-primary">
+<span class="inline-block mb-4 px-4 py-1 rounded-full border border-primary-fixed-dim text-primary-fixed-dim font-label-md uppercase tracking-widest">Est. 2024 • Bharatpur</span>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-6 leading-tight">Artisanal flavors served with sophisticated comfort.</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90 leading-relaxed">Experience the perfect blend of local bistro charm and fine dining precision. Open 7am to 9:30pm daily for food, coffee, and wine.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-full font-label-md hover:bg-secondary-fixed transition-all shadow-lg">
+                            Explore Menu
+                        </button>
+<button class="border-2 border-white text-white px-10 py-4 rounded-full font-label-md hover:bg-white/10 transition-all">
+                            Book a Table
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Chef's Specials -->
+<section class="py-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-primary mb-4">Chef's Specials</h2>
+<div class="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+<p class="mt-6 text-on-surface-variant max-w-xl mx-auto">Hand-curated dishes that define the season. Fresh, local, and crafted with obsession.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Special Item 1 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A gourmet salad bowl with vibrant ingredients including fresh greens, grilled halloumi, roasted nuts, and a balsamic glaze. The dish is presented on a minimalist ceramic plate under soft natural morning light in a bright cafe setting. The overall aesthetic is fresh, professional, and inviting with herbal green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDqOuVOtGZdyp6gUIB1HJbf2s_ON7IsoPEjALwSZLQvIOZhekSmeJ-rPTascoLsoux6LBgJyUfCkNP49NoVbz0cQp7CJeMe-DCQCDdFeJnu4dUDidckX2l8TCabHKN5Xtk_mc7ZYgQ8siPiJatlUWFaIm_cYAgEYHCfzcYuvQffau7qZYpIbctf5HMZ89pBnAEeNIW-QUUvrFoAKUDHpYNYeOkYvISafMIiJ3kC8F_V9E650z5b2JktdBc71r4VwNZh01R8YNAqY">
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded-full font-label-md text-xs">VEGAN</span>
+</div>
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Summer Zen Bowl</h3>
+<span class="font-headline-sm text-primary">Rs. 850</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Quinoa, avocado, charred broccoli, and miso-tahini dressing.</p>
+</div>
+<!-- Special Item 2 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A premium beef short rib steak beautifully plated with creamy potato puree and a rich wine reduction sauce. The lighting is warm and dramatic, highlighting the texture of the meat and the sheen of the sauce. This high-end culinary shot uses a sophisticated palette of deep greens and earthy tones to evoke fine dining excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZxLZDNK3nnX5NUSm4E1PfWUwpyZT44gyiTsuvM4jknnWcLFcU0oK_yR_uB2nM7BUo9s5IOqZ8kkMRml0VFiIH833M_IB4FIw2dWScLe9qjLyny7qesL9lmRjXW3O2WNvdFqZ2YO6DcwqBxFZw8KrPiyMgPCmVEVsIWoZj1_S2z8jijexXRVEYI03kgjlvHml9LoXvaPXarKieOeiEsO01ezTEmSZILZnt_4dQe-q7SplWRry5TfVJa5Mf-Lsj3g265Hd8O5rho">
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Midnight Ribs</h3>
+<span class="font-headline-sm text-primary">Rs. 1,450</span>
+</div>
+<p class="text-on-surface-variant font-body-md">12-hour slow-cooked ribs with a blackberry wine reduction.</p>
+</div>
+<!-- Special Item 3 -->
+<div class="group cursor-pointer">
+<div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-md transition-shadow">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal dessert featuring a decadent chocolate lava cake with a molten center, served with a scoop of Madagascar vanilla bean gelato. The presentation is elegant on a dark stoneware plate, accented with gold leaf and fresh berries. Soft ambient light creates a warm, cozy atmosphere suitable for a luxury cafe brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoVyBoE50snvVUpT5eQDW746Mx9V4Oyvu20jFQnjaq5HaJ3Uzas30_RjWpbL_zmKYDjePc92M58Vun_MEhxVQAoGZ32EBNSrp4Kffy94sp2HjmktMLDtNyJ6aeJV8m4j0r9FpkAEs5IIxJIdJ7c0Vw3iYfZAvdM9uxpwSU5JkAgv-RM4RCKVUHMjm_KMjhRqh4VD3AyEPo2jdkNN-wjymx7NhYaEGALuFjwzSuvOHGtbmNddHACtLkXzJ1iwgUK3X-big4c7dZxZI">
+</div>
+<div class="flex items-baseline justify-between mb-2">
+<h3 class="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">Lava &amp; Embers</h3>
+<span class="font-headline-sm text-primary">Rs. 620</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Molten dark chocolate cake with sea salt and vanilla gelato.</p>
+</div>
+</div>
+</section>
+<!-- Signature Experience -->
+<section class="bg-surface-container py-24">
+<div class="max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<h2 class="font-display-lg text-headline-md md:text-headline-md text-primary mb-8">The Fine Diners Philosophy</h2>
+<ul class="space-y-8">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-3 rounded-full h-fit">coffee</span>
+<div>
+<h4 class="font-label-md text-primary uppercase mb-2">Artisanal Coffee</h4>
+<p class="text-on-surface-variant">Single-origin beans roasted in small batches to preserve unique flavor profiles.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-3 rounded-full h-fit">wine_bar</span>
+<div>
+<h4 class="font-label-md text-primary uppercase mb-2">Curated Wine List</h4>
+<p class="text-on-surface-variant">A handpicked selection of international and regional labels for the perfect pairing.</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary bg-primary-fixed p-3 rounded-full h-fit">restaurant</span>
+<div>
+<h4 class="font-label-md text-primary uppercase mb-2">Chef's Table</h4>
+<p class="text-on-surface-variant">Traditional recipes reinvented with modern techniques and local ingredients.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="order-1 md:order-2 grid grid-cols-2 gap-4">
+<img class="rounded-xl w-full aspect-square object-cover" data-alt="Close up of a professional barista crafting a latte art heart in a ceramic cup. The steam is visible in the natural morning light. The background shows a modern, clean cafe counter with high-end equipment. The style is warm, artisanal, and focused on craft." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZxLZDNK3nnX5NUSm4E1PfWUwpyZT44gyiTsuvM4jknnWcLFcU0oK_yR_uB2nM7BUo9s5IOqZ8kkMRml0VFiIH833M_IB4FIw2dWScLe9qjLyny7qesL9lmRjXW3O2WNvdFqZ2YO6DcwqBxFZw8KrPiyMgPCmVEVsIWoZj1_S2z8jijexXRVEYI03kgjlvHml9LoXvaPXarKieOeiEsO01ezTEmSZILZnt_4dQe-q7SplWRry5TfVJa5Mf-Lsj3g265Hd8O5rho">
+<img class="rounded-xl w-full aspect-[3/4] object-cover mt-8" data-alt="The elegant interior of a modern bistro with forest green velvet seating and brass accents. Large windows allow natural light to flood the room, illuminating polished wood tables and minimalist decor. The vibe is sophisticated, upscale, and welcoming, reflecting a professional brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZxLZDNK3nnX5NUSm4E1PfWUwpyZT44gyiTsuvM4jknnWcLFcU0oK_yR_uB2nM7BUo9s5IOqZ8kkMRml0VFiIH833M_IB4FIw2dWScLe9qjLyny7qesL9lmRjXW3O2WNvdFqZ2YO6DcwqBxFZw8KrPiyMgPCmVEVsIWoZj1_S2z8jijexXRVEYI03kgjlvHml9LoXvaPXarKieOeiEsO01ezTEmSZILZnt_4dQe-q7SplWRry5TfVJa5Mf-Lsj3g265Hd8O5rho">
+</div>
+</div>
+</section>
+<!-- Instagram Bento Grid -->
+<section class="py-24 max-w-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div>
+<h2 class="font-display-lg text-headline-md text-primary">@fine_diners_cafe</h2>
+<p class="text-on-surface-variant mt-2">Join our community of 1,941+ food lovers.</p>
+</div>
+<a class="flex items-center gap-2 text-primary font-label-md group" href="#">
+                    View on Instagram 
+                    <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<!-- Bento Layout for Instagram Posts -->
+<div class="bento-grid">
+<div class="col-span-2 row-span-2 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A large, beautifully composed flat lay of a gourmet brunch spread. Featuring avocado toast, poached eggs, fresh berries, artisanal bread, and two steaming cups of coffee. The setting is a rustic wooden table under soft, diffused lighting. The image captures a sense of abundant, high-quality hospitality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxDqOuVOtGZdyp6gUIB1HJbf2s_ON7IsoPEjALwSZLQvIOZhekSmeJ-rPTascoLsoux6LBgJyUfCkNP49NoVbz0cQp7CJeMe-DCQCDdFeJnu4dUDidckX2l8TCabHKN5Xtk_mc7ZYgQ8siPiJatlUWFaIm_cYAgEYHCfzcYuvQffau7qZYpIbctf5HMZ89pBnAEeNIW-QUUvrFoAKUDHpYNYeOkYvISafMIiJ3kC8F_V9E650z5b2JktdBc71r4VwNZh01R8YNAqY">
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="col-span-1 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A macro shot of a perfectly poured cappuccino with intricate latte art on a white porcelain saucer. The surrounding environment is a blurry, warm-toned cafe with wooden accents. The lighting is focused and bright, highlighting the creamy texture of the milk foam. Professional and high-quality aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaKZxLZDNK3nnX5NUSm4E1PfWUwpyZT44gyiTsuvM4jknnWcLFcU0oK_yR_uB2nM7BUo9s5IOqZ8kkMRml0VFiIH833M_IB4FIw2dWScLe9qjLyny7qesL9lmRjXW3O2WNvdFqZ2YO6DcwqBxFZw8KrPiyMgPCmVEVsIWoZj1_S2z8jijexXRVEYI03kgjlvHml9LoXvaPXarKieOeiEsO01ezTEmSZILZnt_4dQe-q7SplWRry5TfVJa5Mf-Lsj3g265Hd8O5rho">
+</div>
+<div class="col-span-1 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A crystal clear cocktail glass containing a vibrant red drink garnished with a sprig of fresh mint and a slice of lime. The background features a dark, moody bar setting with soft bokeh lights from wine bottles. The mood is sophisticated and elegant, emphasizing the cafe's premium drink selection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaaw2JEFzPgTdX-eubocHqCX4ruy3gx73SQeWm_yc5-X8r9_tUFK62SItLyZhWA_jRWnyzfXjINhmUE03h1DbBiodmoGO66B9P15sgZFWs5QQaFWuyrx-TgZqcWbw-AZR9QNQ9KhGsn4IuyS8iTIKDhsOdGLr4SBaNn9UcK2g3Fnu7WHFFWWJjWCVJN-sCIw4XgNEInY7LoyWIqAgIj_t_Fsahy7ZuVCP9lVkSeHuUG5ILCKW3tpG0mKhRDEVsELyKnbQ5I6dohS4">
+</div>
+<div class="col-span-1 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A slice of artisanal pizza with fresh mozzarella, basil leaves, and a thin, blistered crust straight from a wood-fired oven. The shot is high-angle and captures the vibrant colors of the ingredients against a dark, textured surface. The aesthetic is rustic yet refined, showing culinary precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGUJRANEfHd8F3GZAe1S-2lLRID5zD-TdAAzkXTNMjFZGLEyQRq0ty5ztrbT1TuDS69qKMKpTJSU-aBpMf1rfnc7i68gHvXATcFs4Au_JrrZ2W6vpcp7GTK56H2vV-CSoOG-qpMbDgi8o6UALOHdgbDp7uq7oIMHquEz2w_lDRnpwv2e6KzVCrusIXTzEvBsGVndc82m6c8KAZJetryhVPxwoFwNaDNxSctcNDTOM8yqcsJOVaXIVGUlbrijjWoGKWfsFZhHxcR7o">
+</div>
+<div class="col-span-1 rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A close-up of a chef's hands delicately garnishing a plate with microgreens using kitchen tweezers. The kitchen environment is clean and professional with stainless steel surfaces and warm overhead lighting. This image emphasizes the meticulous attention to detail and craftsmanship behind every meal." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATc0aiZ6mfVKRqcoonYio4n0PCo7vhEVjUmsWl97cmwE2Uz69Bmn71nNqjzUu3JV8spvvPs8zB_gT2EZpklQxZGZc23F2pG5LgD7lfBCA_SSt0pFWSIGYELuDclTLsbl_UaQNwAvDF4Hl17e5uDp7nFO113vnw-cxIsJnz5xCTdgsEZHyQD9YI-qYE7XPOH0-S61j7KcgjHnjzV2rqlTF-UxPQ2QHt6cQrYx_x-RNRslcplxcwPkts20la2O3xZ_YNQFSRJ91UY2U">
+</div>
+</div>
+</section>
+<!-- Newsletter / Reservation CTA -->
+<section class="mb-24 px-margin-mobile md:px-margin-desktop">
+<div class="max-w-max-width mx-auto bg-primary rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-64 h-64 border border-white rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+<div class="absolute bottom-0 right-0 w-96 h-96 border border-white rounded-full translate-x-1/3 translate-y-1/3"></div>
+</div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-headline-md md:text-display-lg text-white mb-6">Planning a Special Occasion?</h2>
+<p class="text-primary-fixed-dim font-body-lg max-w-2xl mx-auto mb-10">Whether it's a birthday, a corporate lunch, or a cozy date night, let us make it unforgettable. Book your table in advance.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<input class="px-6 py-4 rounded-full bg-white/10 border-white/20 text-white placeholder:text-white/40 focus:ring-2 focus:ring-secondary-fixed focus:border-transparent outline-none min-w-[300px]" placeholder="Your email for updates" type="email">
+<button class="bg-secondary-container text-on-secondary-container px-10 py-4 rounded-full font-label-md hover:bg-secondary-fixed transition-all">
+                            Join Our Circle
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full px-margin-mobile py-10 flex flex-col items-center gap-base text-center mb-20 bg-surface-container-highest dark:bg-surface-container-low border-t border-outline-variant">
+<div class="font-headline-sm text-headline-sm text-primary mb-4">Fine Diners Cafe</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-on-surface mb-8">
+<div>
+<h5 class="font-label-md uppercase text-primary mb-4">Location</h5>
+<p class="text-on-surface-variant font-body-md">Pabitra chowk, Synergy Road<br>Bharatpur, Nepal 44200</p>
+</div>
+<div>
+<h5 class="font-label-md uppercase text-primary mb-4">Contact</h5>
+<p class="text-on-surface-variant font-body-md">9867612449 / 9855015826<br>hello@finediners.cafe</p>
+</div>
+<div>
+<h5 class="font-label-md uppercase text-primary mb-4">Hours</h5>
+<p class="text-on-surface-variant font-body-md">Open Daily<br>7:00 AM – 9:30 PM</p>
+</div>
+<div>
+<h5 class="font-label-md uppercase text-primary mb-4">Links</h5>
+<div class="flex flex-col gap-2">
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">Menu</a>
+<a class="text-on-surface-variant hover:text-primary underline transition-all" href="#">Book a Table</a>
+</div>
+</div>
+</div>
+<div class="text-on-surface-variant font-body-md pt-8 border-t border-outline-variant w-full max-w-max-width">
+            © 2024 Fine Diners Cafe. Crafted with obsession for flavor and comfort.
+        </div>
+</footer>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-primary dark:bg-primary-container rounded-t-xl shadow-lg">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full p-2" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-label-md">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim p-2" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] font-label-md">Menu</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim p-2" href="#">
+<span class="material-symbols-outlined">info</span>
+<span class="text-[10px] font-label-md">About</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary-fixed-dim p-2" href="#">
+<span class="material-symbols-outlined">contact_support</span>
+<span class="text-[10px] font-label-md">Contact</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions and scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+                header.classList.remove('bg-surface-bright');
+                header.classList.add('bg-white/90', 'backdrop-blur-md');
+            } else {
+                header.classList.remove('shadow-sm', 'bg-white/90', 'backdrop-blur-md');
+                header.classList.add('bg-surface-bright');
+            }
+        });
+
+        // Add interaction to buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+
+
+</body></html>

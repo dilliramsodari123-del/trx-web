@@ -56,7 +56,7 @@ export function PricingCalculator({ className }: PricingCalculatorProps) {
           <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-3">
             1. Choose your website type
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
             {CALCULATOR_PLANS.map((plan) => (
               <button
                 key={plan.name}
@@ -125,9 +125,9 @@ export function PricingCalculator({ className }: PricingCalculatorProps) {
 
       {/* Right summary panel */}
       <div className="lg:col-span-2">
-        <div className="sticky top-24 rounded-3xl border border-border bg-card shadow-xl shadow-primary/5 overflow-hidden">
+        <div className="lg:sticky lg:top-24 rounded-3xl border border-border bg-card shadow-xl shadow-primary/5 overflow-hidden">
           {/* Top accent */}
-          <div className="h-1 bg-linear-to-r from-[#0066ff] to-violet-600" />
+          <div className="h-1 bg-linear-to-r from-primary to-brand-violet" />
 
           <div className="p-6 space-y-4">
             <h3 className="font-bold text-foreground font-display text-lg">Your Estimate</h3>

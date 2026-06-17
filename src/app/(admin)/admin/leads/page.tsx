@@ -15,15 +15,15 @@ export default async function AdminLeadsPage() {
     .order("created_at", { ascending: false });
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-background">
       <AdminNav />
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="mb-8 flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-extrabold text-slate-900">Leads</h1>
-            <p className="text-slate-500 mt-1">Manage all website requests and enquiries.</p>
+            <h1 className="text-3xl font-bold text-foreground tracking-tight">Leads</h1>
+            <p className="text-muted-foreground mt-1">Manage all website requests and enquiries.</p>
           </div>
-          <span className="bg-blue-100 text-blue-700 font-bold px-4 py-1.5 rounded-full text-sm">
+          <span className="bg-primary/10 text-primary font-bold px-4 py-1.5 rounded-full text-sm border border-primary/20">
             {leads?.length ?? 0} total
           </span>
         </div>

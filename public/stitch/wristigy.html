@@ -1,0 +1,437 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Wristify | Smart Styles, Better Every Day</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#cccaca",
+                        "on-tertiary": "#303030",
+                        "surface": "#131313",
+                        "background": "#131313",
+                        "surface-dim": "#131313",
+                        "surface-tint": "#fabd00",
+                        "on-surface": "#e2e2e2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "primary-fixed": "#ffdf9e",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#303030",
+                        "error": "#ffb4ab",
+                        "on-secondary-container": "#b7b5b4",
+                        "on-surface-variant": "#d4c5ab",
+                        "on-secondary-fixed-variant": "#474746",
+                        "surface-container": "#1f1f1f",
+                        "on-secondary": "#313030",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed-dim": "#fabd00",
+                        "primary": "#ffe4af",
+                        "on-primary": "#3f2e00",
+                        "surface-container-low": "#1b1b1b",
+                        "tertiary": "#e9e6e6",
+                        "on-primary-container": "#6d5100",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "inverse-surface": "#e2e2e2",
+                        "secondary-container": "#474746",
+                        "outline": "#9c8f78",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#261a00",
+                        "surface-container-highest": "#353535",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "outline-variant": "#4f4632",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#c8c6c5",
+                        "error-container": "#93000a",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "surface-bright": "#393939",
+                        "on-background": "#e2e2e2",
+                        "inverse-primary": "#785900",
+                        "surface-variant": "#353535",
+                        "primary-container": "#ffc107",
+                        "on-tertiary-container": "#555555",
+                        "on-secondary-fixed": "#1c1b1b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base-unit": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "24px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e2e2e2;
+            overflow-x: hidden;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(255, 193, 7, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+        .glass-card {
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(45, 45, 45, 0.8);
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<!-- TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-background/90 backdrop-blur-md dark:bg-background/90 border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-8">
+<a class="text-headline-md font-bold tracking-tighter text-on-surface dark:text-on-surface" href="#">Wristify</a>
+<nav class="hidden md:flex gap-6">
+<a class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary text-body-md font-body-md" href="#">Catalog</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#">Smartwatches</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#">Accessories</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors text-body-md font-body-md" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="hidden lg:flex items-center bg-surface-container rounded-full px-4 py-2 border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-md w-48 text-on-surface" placeholder="Search..." type="text">
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-all active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+<button class="md:hidden p-2 text-on-surface-variant">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Wristify Hero Banner" class="w-full h-full object-cover opacity-50 md:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_2hn5_LgwBotW65CJNPdENjVTO_YBGoTBe_8cj22tnTTOHBmveSYnVm9vlTXDcsp7-MQv0DbWMhlMEHMTFfXu7wjAUwFBGBi-lDCFCOz4JR0xSDqUMEianNTcGf2c_LHtMtlVDzBFQ6QxzoiJtIVrZICjHTCesRVjyDzEVrH22y-UbvjHOjmMZvE_n_OhkBiMjNyBvrgwXYQIhBS9Wbi2_zWN1o2zXwx1w2w_v7hPSGVxdFVidcF7eG7zkXTgXPAh5GP_VrzEbsnn">
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-gutter w-full">
+<div class="max-w-2xl space-y-6">
+<div class="inline-flex items-center gap-2 bg-surface-container-highest/50 backdrop-blur-sm px-4 py-1.5 rounded-full border border-outline-variant">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest text-on-surface">New 2024 Collection</span>
+</div>
+<h1 class="text-display-lg-mobile md:text-display-lg font-display-lg leading-tight text-white">
+                        SMART STYLE.<br>
+<span class="text-primary-container">BETTER EVERY DAY.</span>
+</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-lg">
+                        Experience the fusion of high-performance engineering and timeless design. Premium smartwatches for those who demand precision in every second.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="bg-primary-container text-on-primary px-10 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:brightness-110 transition-all active:scale-95 shadow-lg shadow-primary-container/20">
+                            Shop Now
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="border border-primary-container text-primary-container px-10 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-container/10 transition-all active:scale-95">
+                            Learn More
+                        </button>
+</div>
+
+</div>
+</div>
+</section>
+<!-- Categories Bento Grid -->
+<section class="py-section-padding bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-headline-md font-headline-md text-on-surface">Curated Categories</h2>
+<p class="text-body-md text-on-surface-variant">Explore our diverse range of precision-crafted wearables.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Smartwatches -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl bg-surface-container border border-outline-variant">
+<img alt="Smartwatches Collection" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional close-up shot of a luxury black smartwatch with a glowing circular digital display on a dark charcoal background. The lighting is dramatic and moody, emphasizing the metallic textures and premium build. The aesthetic is high-tech corporate minimalism with sharp focus on the glass surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJI-OZIOvdcjAUgfeJ7IOZYw7d5DdkAiJxxrN4dsjrWxjmkXR5O0BiafIHnCMMNSvVLNU6Ma_LheT5bm2n3lg88jrEEDDzzUsQiBptjwBxX8nodgKciPOSvTF2EGU-21VpOGHKIekxh7Lcv_brJHHLkyn8xo_SjVmNKvSCNElPQH4KSCLpvywfKeQTwaQnlSHfcnHb1f8sW8hjfRXFnFIFHlNIt06T--EFjsWChzWzdk8TRNXCo8D8CujRhGtFfUHWPm7EeuqZ7df">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="text-label-sm font-label-sm text-primary-container uppercase tracking-widest mb-2">Core Collection</p>
+<h3 class="text-display-lg-mobile font-bold text-white mb-4">Smartwatches</h3>
+<a class="inline-flex items-center text-primary-container font-bold gap-2 group/btn" href="#">
+                                Explore All <span class="material-symbols-outlined transition-transform group-hover/btn:translate-x-1">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Fitness Bands -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-xl bg-surface-container border border-outline-variant">
+<img alt="Fitness Bands" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sleek fitness tracker with a slim profile and vibrant colorful screen showcasing health metrics. The image is set in a modern fitness environment with subtle bokeh of gym lights in the background. High-contrast dark tones dominate the frame with glowing neon data points on the device's OLED screen." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBWGB5xa-cLzA84TCPxx6xaVJv_0a0aq0Dwv_kyQBCVoYrKuNND9FU1FlTzg43WB_Z0fKfge0SyKNPapNrw4vOUfIERJkoJk9LaiWp8_LeSB9FTX1Azhl5ztMGtmsC4ELhYgDOukIdfCFhZ6q4LZqXxea6LLheCb2GakyNDBTLWye8KHR0R65ehHJnESvmOspvSgtOERJkQ0zCZfAaidxiv5oxZN4xWjQCsZa6RjmU86vJ3a-YWe1aF4fhaCE0S5v8z17TPJNVtEux">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="text-headline-md font-bold text-white mb-2">Fitness Bands</h3>
+<p class="text-body-md text-on-surface-variant mb-4">Track every heartbeat.</p>
+</div>
+</div>
+<!-- Tech Accessories -->
+<div class="md:col-span-12 group relative overflow-hidden rounded-xl bg-surface-container border border-outline-variant h-64 md:h-auto">
+<img alt="Tech Accessories" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Premium tech accessories including wireless earbuds, watch straps, and charging docks arranged in a minimalist flat-lay on a black matte surface. The lighting creates subtle reflections on the metallic and leather textures. The overall tone is luxurious and organized, reflecting a high-end gadget ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDR7ry9YJI2t-56HA-hmG_Fg2lHbq4dx4HM79NOLOr7tYgLlOqPlE49aM6tTd36qqGLHiypVth8TA48kmW7s9TEaLaPCVdB4WCdNjFT7VBLfEbzt7B5lYHFgoucS1McsIMc1HeU3Iyz7WB2_HbGUVLm8zHx-8k7w0f4Or5Xb1kDZzTEdBNq4yiiu_5IEQHMIB6nKvdy0YrobsqbPQSqchflvha0_sMSSOQBnPdjYeARSzHQxe6pqWPGjXXIrb2K9Je4UjIikcIbxYGx">
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/10 to-transparent"></div>
+<div class="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
+<h3 class="text-headline-md font-bold text-white mb-2">Tech Accessories</h3>
+<p class="text-body-md text-on-surface-variant max-w-md">Straps, chargers, and performance audio to complete your digital life.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- New Arrivals Grid -->
+<section class="py-section-padding bg-surface-container-lowest">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-16">
+<h2 class="text-display-lg-mobile md:text-headline-md font-headline-md text-on-surface mb-2">New Arrivals</h2>
+<div class="w-20 h-1 bg-primary-container mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Product Card 1 -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-primary-container/5">
+<div class="relative aspect-square overflow-hidden bg-black flex items-center justify-center p-8">
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-primary-container text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">New</span>
+</div>
+<img alt="Wristify Apex 1" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" data-alt="A minimalist smart watch with a white silicone band and a circular silver body. The screen is off, showing a deep black glass surface. The product is placed in a studio lighting setup with soft shadows against a dark neutral background, conveying a clean and modern design aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuATCzh7sSEC9SpSHJ7wJ21jRV132esM-rr7al8reqwqSb5GE4iNvxAUPda9kB5FjZicLyWDKUv3ZvAz2SM2HGM7xiguxNXAXJjjo6fugJs0FYKNjIpD4qEHO_28B9bK_vfWRLAgJauN3YuPeoLuyD9avxnHW29BG5AIExohjnOZDiC32yMAJzKH1Qo7zeRM9oorcfoMkARus73mFhL-BSjVU6bNYL5LuxJkcDwg8DNuBRGL1TtkoMv6qSyAs-TOJ1wKfMhVgo5tI8ju">
+<button class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Wristify Pro</p>
+<h4 class="text-body-lg font-bold text-on-surface mb-4">Apex Series Gen 2</h4>
+<div class="flex justify-between items-center">
+<span class="text-primary-container font-bold text-body-lg">NPR 12,499</span>
+<div class="flex gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface">4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-primary-container/5">
+<div class="relative aspect-square overflow-hidden bg-black flex items-center justify-center p-8">
+<img alt="Wristify Rugged XT" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" data-alt="High-end rugged smartwatch with a black tactical strap and a bold metallic bezel. The digital watch face is illuminated with vibrant blue and amber telemetry data. The setting is dramatic with moody side-lighting that highlights the intricate textures of the watch body, suggesting durability and advanced tech." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs_n86N9Lwzn_NClF7tUljUsAZj8BTHhSrEDCRpfJhSc-B7n3OB1KhHFFnptB6LUE2kAaJs7fDjXvSTPAgiOnfbcRTU3cQ6AXjcIPVGbCfj_0UelvZxgWxVPG6AA5VBD20Wox8lwekPHIKuuzt-lJ9j8s25oUTlslHw9C8Ct4hfgrCc2smM7qG3Eg8UKk6YYebsaTCB4FMNqcb-K2AdRMpqD4_XZrdn0kfeH02HbTSK0777wtDcU4fYk0tMEth5S9wx4CNzeq7GSe5">
+<button class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Adventure</p>
+<h4 class="text-body-lg font-bold text-on-surface mb-4">Rugged XT Explorer</h4>
+<div class="flex justify-between items-center">
+<span class="text-primary-container font-bold text-body-lg">NPR 18,999</span>
+<div class="flex gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface">4.9</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-primary-container/5">
+<div class="relative aspect-square overflow-hidden bg-black flex items-center justify-center p-8">
+<img alt="Wristify Luxe" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" data-alt="A minimalist smartwatch with a rose-gold casing and a light mesh metal band. The screen displays a simple elegant analog clock face. The lighting is soft and luxurious, with a warm color temperature that makes the rose gold glow against a deep charcoal backdrop, targeted at an upscale fashion-forward audience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb3hxnexGLXvLVFRFHR7hmQLa6fcQQzaZnkUk275nVzAbskwQqkx5XGcEwnpJqUGcitPOWVPwQ5ec7GtfDygCKpQNdEJ3GhYO4WCLU5kY41lzy0_LDCHCPgw1RRss3d4mzXCIlfhuXAsWNOv3YpnKVwFYqACDYGH_47-KRt240rgeIHX3CEd_o0uzl5wCqFB_TzQeQAs6xO9f7ttQKc_khVmh7NzgdUSD3YONUMGG-v9LUAD14j2ILWb03c6lDiqVxm3bAUbgqCNtM">
+<button class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Lifestyle</p>
+<h4 class="text-body-lg font-bold text-on-surface mb-4">Luxe Mesh Edition</h4>
+<div class="flex justify-between items-center">
+<span class="text-primary-container font-bold text-body-lg">NPR 14,200</span>
+<div class="flex gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface">4.7</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-surface-container border border-outline-variant rounded-xl overflow-hidden transition-all hover:shadow-2xl hover:shadow-primary-container/5">
+<div class="relative aspect-square overflow-hidden bg-black flex items-center justify-center p-8">
+<div class="absolute top-4 left-4 z-10">
+<span class="bg-red-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">-15%</span>
+</div>
+<img alt="Wristify Active 3" class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110" data-alt="A square-faced smartwatch with a vibrant colorful OLED screen showing heart rate data and a step counter. The watch has a sleek black polymer band. The background is a high-contrast dark space with a single gold spotlight creating a halo effect around the product, suggesting premium quality and energetic health focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNddYqSF6YpLKKN-xHSnom_MgUQ7BLR9YVN3OhnisV9ULYUltBfNGipIExF9BPe7WQQy5bTkTSTH3Eb8MMUl67Ccsh4rbzfJKbWcvOhz45YUUX1ybHXCohuCOzW6BgBXN6vdDmAo5VdT6if-v6ATiRgvkP08gNDQ40NRZM2o3DeYVwarf80I_14n-_6jALsBynnZRMq_REFcsEYewm9GN16UU1SjomLLaU7TK8EpaIimcfp6eTivFv2se7bfwtKBbiBlm7EknEF3JE">
+<button class="absolute bottom-4 right-4 bg-white/10 backdrop-blur-md text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined">add_shopping_cart</span>
+</button>
+</div>
+<div class="p-6">
+<p class="text-label-sm font-label-sm text-on-surface-variant uppercase mb-1">Sports</p>
+<h4 class="text-body-lg font-bold text-on-surface mb-4">Active Pulse 3</h4>
+<div class="flex justify-between items-center">
+<div>
+<span class="text-primary-container font-bold text-body-lg">NPR 8,499</span>
+<span class="text-on-surface-variant text-label-sm line-through ml-2">9,999</span>
+</div>
+<div class="flex gap-1 text-primary-container">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm font-label-sm text-on-surface">4.6</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-16 text-center">
+<button class="border border-outline-variant text-on-surface px-8 py-3 rounded-full hover:bg-surface-container-highest transition-colors font-bold">
+                        View All New Arrivals
+                    </button>
+</div>
+</div>
+</section>
+<!-- Newsletter CTA -->
+<section class="py-section-padding bg-background relative overflow-hidden">
+
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter relative z-10">
+<div class="glass-card rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12">
+<div class="max-w-xl text-center md:text-left">
+<h2 class="text-display-lg-mobile md:text-headline-md font-headline-md text-white mb-4">Join the Wristify Community</h2>
+<p class="text-body-lg text-on-surface-variant">Stay updated with the latest releases, tech insights, and exclusive member offers delivered straight to your inbox.</p>
+</div>
+<div class="w-full max-w-md">
+<form class="flex flex-col sm:flex-row gap-3">
+<input class="flex-grow bg-surface-container-high border border-outline-variant rounded-xl px-6 py-4 text-white focus:ring-primary-container focus:border-primary-container" placeholder="Enter your email" type="email">
+<button class="bg-primary-container text-on-primary font-bold px-8 py-4 rounded-xl hover:brightness-110 transition-all active:scale-95 whitespace-nowrap">
+                                Subscribe
+                            </button>
+</form>
+<p class="text-label-sm text-on-surface-variant mt-4 text-center md:text-left">By subscribing, you agree to our Privacy Policy and Terms of Service.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 px-margin-mobile md:px-gutter py-section-padding max-w-container-max mx-auto">
+<div class="col-span-2 md:col-span-1 space-y-6">
+<a class="text-display-lg font-bold text-primary dark:text-primary-fixed-dim" href="#">Wristify</a>
+<p class="text-body-md text-on-surface-variant">Defining the future of wearable technology with precision and style. Based in Nepal, delivering worldwide.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">public</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">smartphone</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-6 text-headline-md">Shop</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Smartwatches</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Fitness Bands</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Straps &amp; Mods</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Screen Protectors</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-6 text-headline-md">Support</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Help Center</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Shipping Info</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Order Tracking</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-on-surface font-bold mb-6 text-headline-md">Legal</h4>
+<ul class="space-y-4">
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Privacy Policy</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Terms of Service</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Warranty Info</a></li>
+<li class=""><a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Return Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-outline-variant py-8">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-label-sm font-label-sm text-on-surface-variant text-center">© 2024 Wristify Smart Watches. All rights reserved.</p>
+<div class="flex items-center gap-6">
+<img alt="PayPal" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3EtdtZUWkb0OfJtR9_CY1eNB5cMaEwbYzG8vqI0S___s859YklpwkTN34RVR7v5HVPDmliy6zU-MtDEiTsVRj7Vvcx80NVGPO5V5zSo1oSqeil0lp7n10Fm6P3idRf8uP-irsdQaoRQJvmuVYQ7yvhShxkG67yAweOFjAvuxsF1rTFx1gasjqoOKtDUiCEYT-uhFLkO3FWNtWY-nX61K8xJIovYky4v3ClkzTXjM4DIbYlIMwvapIi09SeWUCxW4Nl7ZhtJbb6Ntm">
+<img alt="Visa" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqpuzrKSkoLMfasSMXhWGFCyCyg8EsNru88ixTwU6_lIoaNrrLtMSEzevksjdKDGUK9ac7eI2DxrYjqH-9SBjcCjqMoG_P4sEmcfwSfPyEli6KzNv2LJigok5RsDh1Zhof80fL7LCAy7FE5xIsAR9GkZafWCKBJn8T0aCIHqJM3gtUfQywrVMaThr5x2fcFm4u4qbXiI42JHC-579pJ5-rAJ0hvpK9AzDK2ggqxgzYuXi_TsrW1nJKyNIbr6g0X36_fuBgWwvG2Ars">
+<img alt="Mastercard" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMX1ZVSGh2mW5OlA9p1qnjVY-Dry7JZx9WbhxfJGjecKsL6ixeE5yHyxWhPe-v_1P5joTsmw7ZML2FtTWO4zMXP0Nrtvo4R5nLl6PuRoUHlC-4bX4GyYd8PWiUlvXYrNJsvz_hOx2BI6vfElbKUX4hMFzlj9vrz_0REwzb3pckCrYNlMmTVGp76xSN_VnirUg7ThVEz00ENm3JIl_4NJ5EtchtMn_9EpythzQXhEenwIGmWjO1-LlFtZz9JVImEb4VZPLb-g_w0YTC">
+</div>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation Bar -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-surface-container border-t border-outline-variant z-50 flex justify-around items-center h-16">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Explore</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Cart</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Account</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for smooth scrolling or hover effects
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+
+</body></html>

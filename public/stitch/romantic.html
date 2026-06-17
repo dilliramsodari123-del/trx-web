@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Gallery | Aura Gifts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed-variant": "#5d4201",
+                    "tertiary-fixed": "#ffdea5",
+                    "on-surface-variant": "#574143",
+                    "on-secondary-fixed": "#241917",
+                    "primary-container": "#be3e59",
+                    "on-tertiary-container": "#ffedd3",
+                    "on-secondary-container": "#70615f",
+                    "secondary-fixed": "#f3dedb",
+                    "error-container": "#ffdad6",
+                    "tertiary": "#6c500f",
+                    "primary-fixed-dim": "#ffb2bb",
+                    "surface": "#fbf9f1",
+                    "on-secondary-fixed-variant": "#514442",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f5f4ec",
+                    "surface-dim": "#dcdad2",
+                    "on-background": "#1b1c17",
+                    "surface-container-highest": "#e4e3db",
+                    "inverse-surface": "#30312c",
+                    "primary-fixed": "#ffd9dd",
+                    "surface-bright": "#fbf9f1",
+                    "tertiary-fixed-dim": "#e9c176",
+                    "on-primary-fixed": "#400012",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#876827",
+                    "on-primary-fixed-variant": "#8b1535",
+                    "outline": "#8b7173",
+                    "background": "#fbf9f1",
+                    "secondary-container": "#f3dedb",
+                    "surface-variant": "#e4e3db",
+                    "on-secondary": "#ffffff",
+                    "primary": "#9d2542",
+                    "on-surface": "#1b1c17",
+                    "on-primary-container": "#ffebec",
+                    "error": "#ba1a1a",
+                    "inverse-on-surface": "#f3f1e9",
+                    "surface-container": "#f0eee6",
+                    "outline-variant": "#debfc2",
+                    "on-tertiary-fixed": "#261900",
+                    "inverse-primary": "#ffb2bb",
+                    "surface-container-lowest": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#ab304c",
+                    "secondary-fixed-dim": "#d6c2bf",
+                    "secondary": "#6a5b59",
+                    "surface-container-high": "#eae8e0"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding-mobile": "24px",
+                    "container-padding-desktop": "80px",
+                    "stack-gap-md": "24px",
+                    "grid-gutter": "24px",
+                    "stack-gap-lg": "48px",
+                    "unit": "8px",
+                    "stack-gap-sm": "12px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Playfair Display"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-md": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "caption": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "headline-sm": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .blush-shadow {
+            box-shadow: 0 10px 40px -10px rgba(157, 37, 66, 0.15);
+        }
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        .floral-accent {
+            opacity: 0.08;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary/20">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md bg-surface-container-low/50 shadow-sm transition-all duration-300">
+<div class="max-w-7xl mx-auto flex justify-between items-center px-container-desktop py-4">
+<div class="font-display-lg text-display-lg text-primary tracking-tighter">Aura Gifts</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md" href="#">Gallery</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md" href="#">Messages</a>
+<a class="text-secondary hover:text-primary transition-colors font-body-md text-body-md" href="#">Registry</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:scale-95 transition-transform" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-primary hover:scale-95 transition-transform" data-icon="shopping_bag">shopping_bag</button>
+<div class="w-10 h-10 rounded-full border border-outline-variant overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a woman with a gentle expression, styled in a minimalist and high-end aesthetic. The lighting is soft and warm, reflecting a premium boutique feel. The background is a blurred neutral cream color that aligns with a sophisticated digital silk brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgMkNUKabcUSk-b2G0x6hEGqgdB4lb2HAOUwDGysTcg7pn-ONpp0xF-ELkwLDT1loqk4MXXNmZ1n2AhuGJNZnsuBEgcM_9Nx-dkOyWLmlSJW9sZJ4DAtAG6Mog2L1uwLJ5T_30Zl4EI5fSteKNTjlnub-Fmxz8DouLcipMVP5DFJH6Mj7LRMBoNcitPNTr-gBODy3xYICMaiQ81N8OjNSYZi7PuNS421C46acwzP0OGyFMKMOvPid-AHR8705GIsMshMd8blGMYUI"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-stack-gap-lg px-container-padding-mobile md:px-container-desktop max-w-7xl mx-auto relative overflow-hidden">
+<!-- Floating Floral Accents -->
+<div class="absolute -top-10 -right-20 floral-accent">
+<svg fill="none" height="400" viewbox="0 0 200 200" width="400" xmlns="http://www.w3.org/2000/svg">
+<path d="M100 20C110 50 140 60 170 70C140 80 110 90 100 120C90 90 60 80 30 70C60 60 90 50 100 20Z" fill="#9d2542"></path>
+<circle cx="100" cy="70" fill="#e9c176" r="5"></circle>
+</svg>
+</div>
+<!-- Header Section -->
+<div class="text-center mb-stack-gap-lg">
+<h1 class="font-display-lg text-display-lg text-primary mb-4 italic">Shared Moments</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-xl mx-auto">A curated tapestry of your most precious memories, captured in digital silk.</p>
+</div>
+<!-- Filter Chips -->
+<div class="flex flex-wrap justify-center gap-4 mb-stack-gap-lg">
+<button class="px-6 py-2 rounded-full bg-primary text-on-primary font-label-md transition-all blush-shadow">All Moments</button>
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-primary font-label-md hover:bg-primary/10 transition-all">Travel</button>
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-primary font-label-md hover:bg-primary/10 transition-all">Anniversaries</button>
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-primary font-label-md hover:bg-primary/10 transition-all">Everyday</button>
+<button class="px-6 py-2 rounded-full bg-secondary-fixed text-primary font-label-md hover:bg-primary/10 transition-all">Celebrations</button>
+</div>
+<!-- Masonry Gallery -->
+<div class="masonry-grid">
+<!-- Item 1 -->
+<div class="masonry-item group cursor-pointer">
+<div class="bg-white p-3 rounded-xl blush-shadow border-[0.5px] border-tertiary-fixed/50 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="overflow-hidden rounded-lg aspect-[4/5] relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A romantic high-end wedding celebration scene with soft, ethereal lighting and floral arrangements in deep rose and cream tones. The atmosphere is intimate and sophisticated, featuring delicate details and a sense of timeless elegance consistent with a luxury brand aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2WjT1QuW32Ukjtgjy2d--N97yQo4eTrZMLW0m3XOvhGhkGLEe-Kt80LODfOM2rXz1lVR4ulDyP0uTVEGqh9I4f2l_YHVYcjA6BakJeJ7mQL-Lu2nKhWPm1zUgMpLC7D0zy0Fqs_kFN4wyeRyQ0noL1vnsluBuYE1mKopjfDbRwiL2VMFiKnc2dzvRe1Mpdx76f9fDnCdDUHyDKQhIdUAmEcBvhcN7ma2-dwr1rQocCQHCpgKNnT6g4f3SK5d9nx1pwsEGUh-vyXE"/>
+</div>
+<div class="pt-4 pb-2 px-1 text-center">
+<p class="font-headline-sm text-headline-sm text-primary italic">Sunset Vows</p>
+<p class="font-caption text-caption text-on-secondary-fixed-variant mt-1">Anniversaries • July 2023</p>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="masonry-item group cursor-pointer">
+<div class="bg-white p-3 rounded-xl blush-shadow border-[0.5px] border-tertiary-fixed/50 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="overflow-hidden rounded-lg aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene morning scene of a couple having coffee on a balcony overlooking a Mediterranean coastline. The lighting is bright and warm, capturing a quiet, everyday moment of affection. The color palette is composed of soft creams, earthy browns, and deep rose accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCswqVi1KkRYJ8v44V67-jX2IsbDL5xoqaNiqonD0ELAyUklRrIvuKLGFKTV8Xj8pzhlp0D3F3iFa7uzY5gP80-DP4ZkvzNf1WaoOHYGfbc-oNXEzi8SyUvZ2eUb24m2T2FQ8ZA_EkOiBtEtVhGrgRj_TKK6F6doxV566ZKODAK0jWfd7YOoEb3rHwapUxunGMxUFxgWVSLY8aMC8ssONq8UqnIPaCfS99J66fMEMfDiSV57oGBeHHNeffU4FcoMwbz3CKXiLV9dKQ"/>
+</div>
+<div class="pt-4 pb-2 px-1 text-center">
+<p class="font-headline-sm text-headline-sm text-primary italic">Amalfi Mornings</p>
+<p class="font-caption text-caption text-on-secondary-fixed-variant mt-1">Travel • May 2024</p>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="masonry-item group cursor-pointer">
+<div class="bg-white p-3 rounded-xl blush-shadow border-[0.5px] border-tertiary-fixed/50 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="overflow-hidden rounded-lg aspect-[3/4] relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-quality editorial style photograph of an intimate dinner setting with candlelight, gold cutlery, and soft rose petals scattered on a cream-colored tablecloth. The mood is deeply emotive and romantic, with a focus on tactile textures and soft focus bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtBihB1JMmbTL1Wg8JliZWPVfnGzG87_aDrNUHl3zSObi6EhGOFL33gZq4hgx3Ga3srDSOAf494Sgd18u7cO4oqFh3cKTL7q_6RQWrr-rRg_vZJa0385mZcT-20GXEMiwzt2iL4EsiJRB4oS_hHeLAiYpIQV9CBYcVNtEjzEYUXszHHMB8ghYRRxksJNASntGxaprqmM508VccjNPIjDLV20rzLdeg1OCDTfcC3GKd_tD4XYdEyOylviNSjnbb9BQmTq7HD4CtQQw"/>
+</div>
+<div class="pt-4 pb-2 px-1 text-center">
+<p class="font-headline-sm text-headline-sm text-primary italic">Table for Two</p>
+<p class="font-caption text-caption text-on-secondary-fixed-variant mt-1">Everyday • February 2024</p>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="masonry-item group cursor-pointer">
+<div class="bg-white p-3 rounded-xl blush-shadow border-[0.5px] border-tertiary-fixed/50 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="overflow-hidden rounded-lg aspect-video relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide-angle artistic shot of a misty mountain landscape at dawn, with soft pink and orange hues in the sky. The image evokes a sense of wonder and shared adventure, reflecting a curated and premium aesthetic with smooth transitions and high clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7Ae4HTTkoBH-g9iJM4jMcY0NOrpkbkIl_B3MGUfhHwXUmvQltWpJftVT_K4NMqDemUapTC5E77dwX2K9SlHm-HBaBKf2EZUnTi9Rxz5Su1LXO2a40G3uXNJsVAIUISTNkPQOq6yAoKicuFxnwAJMZvyH0PGjhGXQnWhTjWpbxVubHF8hJZ7QPWsPUUUQrq2IXHQfoP3AilqN1YcalcjCIwc-aBq2olTpYLtFPnBzMOKefpAFNufoe3MNnrnb3lwuhNAwxNDNebHM"/>
+</div>
+<div class="pt-4 pb-2 px-1 text-center">
+<p class="font-headline-sm text-headline-sm text-primary italic">First Peak Together</p>
+<p class="font-caption text-caption text-on-secondary-fixed-variant mt-1">Travel • October 2023</p>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="masonry-item group cursor-pointer">
+<div class="bg-white p-3 rounded-xl blush-shadow border-[0.5px] border-tertiary-fixed/50 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="overflow-hidden rounded-lg aspect-[4/5] relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close up of two hands entwined, showing a detailed focus on skin texture and a delicate gold ring. The lighting is high-key and romantic, with a soft blur in the background. The aesthetic is tactile and intimate, emphasizing a deep connection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV5BN8fvjGCLRSrwvmgh1y0jg_pyFsSv6nZiIaDuseRI8kQaOwKajrH44LimbQuKNVmr8kfjIwfH57BZnhZ8FG8R67VllcS3Fw10JqcwhENyW7j4GurDnCzInfuaaETbycnpDWju_9D47WqmvkAJ6vn8aZ6lseFS80ui4rb2Hezoixt-h9OJTvY08Qr4dVtWse3iHnrw-UtisEkpWuF0Whpn6RQT7npDZyG8HyuUnvRii5oAsMLLDBXat57UNVrbmEb-OL3AA6tWU"/>
+</div>
+<div class="pt-4 pb-2 px-1 text-center">
+<p class="font-headline-sm text-headline-sm text-primary italic">Always Hand in Hand</p>
+<p class="font-caption text-caption text-on-secondary-fixed-variant mt-1">Everyday • January 2024</p>
+</div>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="masonry-item group cursor-pointer">
+<div class="bg-white p-3 rounded-xl blush-shadow border-[0.5px] border-tertiary-fixed/50 transition-transform duration-500 group-hover:-translate-y-2">
+<div class="overflow-hidden rounded-lg aspect-square relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A festive celebration scene with shimmering gold confetti, crystal glasses, and a beautifully decorated cake. The lighting is warm and glowy, creating a bloom effect that feels celebratory and high-end. The color palette centers on gold, cream, and deep rose." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCguFf8suf4peauK4r4qM4frs6X9mo6Gv_fjMwT45D3mo32AZk51WPaR62Nx9b0dAwbJKolnt0AhY7tl1JxokoFJtYocOURWO_m887WehKAf4tf3t_uhW6IvC5N8QqoSA-OcOeGUUZ2XcobXddOihhROsYbIjpu_el3GGjmEiGnYBnvL2k-hg-PFpq_eTlI6GDpatU_Y45PE-Sewn7xiQer80Fx2Fn2HUqAG3lONy8bXexLSjiBBr87WEeezONtDQn-islEOxk1Vwk"/>
+</div>
+<div class="pt-4 pb-2 px-1 text-center">
+<p class="font-headline-sm text-headline-sm text-primary italic">Golden Years</p>
+<p class="font-caption text-caption text-on-secondary-fixed-variant mt-1">Celebrations • December 2023</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Load More Section -->
+<div class="flex justify-center mt-12">
+<button class="group flex flex-col items-center gap-2">
+<span class="font-label-md text-primary tracking-widest uppercase">Discover More</span>
+<div class="w-12 h-[1px] bg-tertiary-fixed-dim group-hover:w-24 transition-all duration-500"></div>
+<span class="material-symbols-outlined text-primary mt-2 animate-bounce" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-secondary-fixed dark:bg-on-secondary-fixed-variant w-full mt-stack-gap-lg border-t border-outline-variant/30 py-stack-gap-lg px-container-desktop flex flex-col items-center gap-stack-gap-md text-center">
+<div class="font-headline-md text-headline-md text-primary">Aura Gifts</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-on-secondary-fixed-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-body-md text-body-md" href="#">Our Story</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-body-md text-body-md" href="#">Shipping</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-body-md text-body-md" href="#">Sustainability</a>
+<a class="text-on-secondary-fixed-variant hover:text-primary transition-colors underline-offset-4 hover:underline font-body-md text-body-md" href="#">Contact</a>
+</div>
+<p class="font-body-md text-body-md text-on-secondary-container max-w-lg">With love, Aura Gifts © 2024. Hand-curated for your most precious moments.</p>
+</footer>
+<!-- Simple Hover Interactivity -->
+<script>
+        document.querySelectorAll('.masonry-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.zIndex = '10';
+            });
+            item.addEventListener('mouseleave', () => {
+                setTimeout(() => {
+                    item.style.zIndex = '1';
+                }, 300);
+            });
+        });
+        
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('py-2', 'shadow-md');
+                header.classList.remove('py-4', 'shadow-sm');
+            } else {
+                header.classList.add('py-4', 'shadow-sm');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body></html>

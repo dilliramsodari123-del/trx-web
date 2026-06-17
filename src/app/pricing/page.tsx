@@ -18,10 +18,10 @@ export default function PricingPage() {
   return (
     <>
       {/* Hero — always dark */}
-      <section className="relative bg-[#09090b] py-28 pt-36 text-center overflow-hidden">
+      <section className="relative bg-[#09090b] py-20 pt-28 sm:py-28 sm:pt-36 text-center overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] rounded-full bg-primary/20 blur-3xl" />
-          <div className="absolute bottom-0 right-1/4 w-72 h-72 rounded-full bg-brand-violet/15 blur-3xl" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-70 h-45 sm:w-125 sm:h-75 rounded-full bg-primary/20 blur-3xl" />
+          <div className="absolute bottom-0 right-1/4 w-40 h-40 sm:w-72 sm:h-72 rounded-full bg-brand-violet/15 blur-3xl" />
           <div
             className="absolute inset-0 opacity-[0.035]"
             style={{
@@ -31,29 +31,29 @@ export default function PricingPage() {
           />
         </div>
         <div className="relative max-w-3xl mx-auto px-4">
-          <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary rounded-full px-4 py-1.5 text-xs font-semibold mb-6">
+          <span className="inline-flex items-center gap-2 bg-primary/10 border border-primary/30 text-primary rounded-full px-3 sm:px-4 py-1.5 text-xs font-semibold mb-5">
             <Zap className="w-3.5 h-3.5" />
             Transparent Pricing
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4 sm:mb-6 leading-tight">
             Simple, Honest Pricing
           </h1>
-          <p className="text-xl text-white/50 max-w-xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-white/50 max-w-xl mx-auto">
             No hidden fees. No surprises. Pay once, get your website in 48 hours.
           </p>
         </div>
       </section>
 
       {/* Pricing cards */}
-      <section className="py-20 bg-background">
+      <section className="py-12 sm:py-16 md:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 items-start">
             {PRICING_PLANS.map((plan) => (
               <div
                 key={plan.name}
                 className={`relative rounded-2xl border p-7 flex flex-col transition-all duration-300 ${
                   plan.highlighted
-                    ? "bg-linear-to-b from-primary to-brand-violet text-white border-transparent shadow-2xl shadow-primary/25 scale-[1.03]"
+                    ? "bg-linear-to-b from-primary to-brand-violet text-white border-transparent shadow-2xl shadow-primary/25 md:scale-[1.03]"
                     : "bg-card border-border hover:border-primary/30 hover:shadow-lg"
                 }`}
               >

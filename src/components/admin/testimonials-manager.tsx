@@ -68,8 +68,8 @@ export function TestimonialsManager({ testimonials: initial }: { testimonials: T
       </div>
 
       {showForm && (
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <h3 className="font-bold text-slate-900 mb-4">New Testimonial</h3>
+        <div className="bg-card rounded-2xl border border-border p-6 shadow-sm">
+          <h3 className="font-bold text-foreground mb-4">New Testimonial</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
               <Label>Client Name</Label>
@@ -126,22 +126,22 @@ export function TestimonialsManager({ testimonials: initial }: { testimonials: T
         {testimonials.map((t) => (
           <div
             key={t.id}
-            className={`bg-white rounded-2xl border p-5 shadow-sm ${
-              t.is_published ? "border-green-200" : "border-slate-200"
+            className={`bg-card rounded-2xl border p-5 shadow-sm ${
+              t.is_published ? "border-brand-success/30" : "border-border"
             }`}
           >
             <div className="flex items-start justify-between mb-3">
               <div>
-                <p className="font-bold text-slate-900">{t.client_name}</p>
-                <p className="text-sm text-slate-500">{t.business_name}</p>
+                <p className="font-bold text-foreground">{t.client_name}</p>
+                <p className="text-sm text-muted-foreground">{t.business_name}</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => togglePublish(t.id, t.is_published)}
                   className={`p-1.5 rounded-lg transition-colors ${
                     t.is_published
-                      ? "text-green-600 bg-green-50 hover:bg-green-100"
-                      : "text-slate-400 hover:bg-slate-100"
+                      ? "text-brand-success bg-brand-success/10 hover:bg-brand-success/20"
+                      : "text-muted-foreground hover:bg-accent"
                   }`}
                 >
                   {t.is_published ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
@@ -159,9 +159,9 @@ export function TestimonialsManager({ testimonials: initial }: { testimonials: T
                 <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               ))}
             </div>
-            <p className="text-sm text-slate-600 line-clamp-3">{t.review}</p>
+            <p className="text-sm text-muted-foreground line-clamp-3">{t.review}</p>
             {t.website_type && (
-              <span className="inline-block mt-2 text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full">
+              <span className="inline-block mt-2 text-xs bg-secondary text-muted-foreground px-2 py-0.5 rounded-full">
                 {t.website_type}
               </span>
             )}

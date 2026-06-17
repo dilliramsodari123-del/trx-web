@@ -51,13 +51,21 @@ export default function TrackPage() {
 
   return (
     <>
-      <section className="relative bg-slate-900 py-24 pt-32 text-center overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative bg-[#09090b] py-24 pt-32 text-center overflow-hidden">
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.15]"
+          style={{
+            backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-3xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white tracking-tight mb-6">
             Track Your Project
           </h1>
-          <p className="text-xl text-slate-400 mb-10">
+          <p className="text-xl text-white/60 mb-10">
             Enter your unique Project ID to see live progress updates.
           </p>
           <div className="flex gap-3 max-w-md mx-auto">
@@ -65,13 +73,13 @@ export default function TrackPage() {
               value={projectId}
               onChange={(e) => setProjectId(e.target.value)}
               placeholder="Enter Project ID (e.g. TRX-2024-001)"
-              className="bg-white/10 border-white/20 text-white placeholder:text-slate-400 focus-visible:ring-blue-400"
+              className="bg-white/10 border-white/20 text-white placeholder:text-white/40 focus-visible:ring-primary"
               onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             />
             <Button
               onClick={handleSearch}
               disabled={loading}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6"
+              className="px-6"
             >
               {loading ? (
                 <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -83,25 +91,25 @@ export default function TrackPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-background">
         <div className="max-w-2xl mx-auto px-4">
           {error && (
-            <div className="rounded-2xl bg-red-50 border border-red-200 p-6 text-center">
-              <p className="text-red-700 font-medium">{error}</p>
+            <div className="rounded-2xl bg-destructive/10 border border-destructive/20 p-6 text-center">
+              <p className="text-destructive font-medium">{error}</p>
             </div>
           )}
 
           {project && (
             <div className="space-y-8">
               {/* Header */}
-              <div className="rounded-2xl bg-linear-to-r from-blue-600 to-violet-600 p-6 text-white">
+              <div className="rounded-2xl bg-linear-to-r from-primary to-brand-violet p-6 text-white">
                 <div className="flex items-center justify-between mb-2">
                   <h2 className="text-2xl font-extrabold">{project.client_name}</h2>
                   <span className="bg-white/20 px-3 py-1 rounded-full text-sm font-bold">
                     {project.project_id}
                   </span>
                 </div>
-                <div className="flex items-center gap-4 text-blue-100 text-sm">
+                <div className="flex items-center gap-4 text-white/70 text-sm">
                   <span>Started: {new Date(project.started_at).toLocaleDateString()}</span>
                   {project.estimated_delivery && (
                     <span>
@@ -125,8 +133,8 @@ export default function TrackPage() {
               </div>
 
               {/* Status steps */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-                <h3 className="font-bold text-slate-900 mb-6">Build Progress</h3>
+              <div className="bg-card rounded-2xl border border-border shadow-sm p-6">
+                <h3 className="font-bold text-foreground mb-6">Build Progress</h3>
                 <div className="space-y-4">
                   {STATUS_STEPS.map((step, i) => {
                     const isDone = i <= currentStepIndex;
@@ -137,9 +145,9 @@ export default function TrackPage() {
                           className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${
                             isDone
                               ? isCurrent
-                                ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-                                : "bg-green-500 text-white"
-                              : "bg-slate-100 text-slate-400"
+                                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                                : "bg-brand-success text-white"
+                              : "bg-secondary text-muted-foreground"
                           }`}
                         >
                           {isDone && !isCurrent ? (
@@ -151,17 +159,17 @@ export default function TrackPage() {
                         <div className="flex-1">
                           <p
                             className={`font-semibold text-sm ${
-                              isDone ? "text-slate-900" : "text-slate-400"
+                              isDone ? "text-foreground" : "text-muted-foreground"
                             }`}
                           >
                             {step.label}
                           </p>
                           {isCurrent && (
-                            <p className="text-xs text-blue-600 font-medium">In Progress...</p>
+                            <p className="text-xs text-primary font-medium">In Progress...</p>
                           )}
                         </div>
                         {isDone && !isCurrent && (
-                          <span className="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">
+                          <span className="text-xs font-bold text-brand-success bg-brand-success/10 px-2 py-0.5 rounded-full">
                             Done
                           </span>
                         )}
@@ -173,15 +181,15 @@ export default function TrackPage() {
 
               {/* Updates */}
               {project.updates && project.updates.length > 0 && (
-                <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-                  <h3 className="font-bold text-slate-900 mb-4">Latest Updates</h3>
+                <div className="bg-card rounded-2xl border border-border shadow-sm p-6">
+                  <h3 className="font-bold text-foreground mb-4">Latest Updates</h3>
                   <div className="space-y-3">
                     {project.updates.map((update, i) => (
                       <div key={i} className="flex gap-3 text-sm">
-                        <span className="text-slate-400 text-xs whitespace-nowrap mt-0.5">
+                        <span className="text-muted-foreground text-xs whitespace-nowrap mt-0.5">
                           {new Date(update.timestamp).toLocaleString()}
                         </span>
-                        <span className="text-slate-700">{update.message}</span>
+                        <span className="text-foreground">{update.message}</span>
                       </div>
                     ))}
                   </div>
@@ -191,7 +199,7 @@ export default function TrackPage() {
           )}
 
           {!project && !error && (
-            <div className="text-center py-12 text-slate-400">
+            <div className="text-center py-12 text-muted-foreground">
               <Package className="w-16 h-16 mx-auto mb-4 opacity-30" />
               <p>Enter your Project ID above to track your website progress.</p>
               <p className="text-sm mt-2">

@@ -1,16 +1,35 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/sections/hero";
 import { TrustMarqueeSection } from "@/components/sections/trust-marquee";
 import { ServicesSection } from "@/components/sections/services";
 import { HowItWorksSection } from "@/components/sections/how-it-works";
-import { PortfolioPreviewSection } from "@/components/sections/portfolio-preview";
-import { WhyChooseUsSection } from "@/components/sections/why-choose-us";
-import { PricingCalculatorSection } from "@/components/sections/pricing-calculator-section";
-import { GiftWebsiteSection } from "@/components/sections/gift-website";
-import { TestimonialsSection } from "@/components/sections/testimonials";
-import { FaqSection } from "@/components/sections/faq";
-import { OrderFormSection } from "@/components/sections/order-form";
-import { FinalCtaSection } from "@/components/sections/final-cta";
+
+// Sections below the fold — split into separate JS chunks, still SSR'd for SEO
+const PortfolioPreviewSection = dynamic(() =>
+  import("@/components/sections/portfolio-preview").then((m) => ({ default: m.PortfolioPreviewSection }))
+);
+const WhyChooseUsSection = dynamic(() =>
+  import("@/components/sections/why-choose-us").then((m) => ({ default: m.WhyChooseUsSection }))
+);
+const PricingCalculatorSection = dynamic(() =>
+  import("@/components/sections/pricing-calculator-section").then((m) => ({ default: m.PricingCalculatorSection }))
+);
+const GiftWebsiteSection = dynamic(() =>
+  import("@/components/sections/gift-website").then((m) => ({ default: m.GiftWebsiteSection }))
+);
+const TestimonialsSection = dynamic(() =>
+  import("@/components/sections/testimonials").then((m) => ({ default: m.TestimonialsSection }))
+);
+const FaqSection = dynamic(() =>
+  import("@/components/sections/faq").then((m) => ({ default: m.FaqSection }))
+);
+const OrderFormSection = dynamic(() =>
+  import("@/components/sections/order-form").then((m) => ({ default: m.OrderFormSection }))
+);
+const FinalCtaSection = dynamic(() =>
+  import("@/components/sections/final-cta").then((m) => ({ default: m.FinalCtaSection }))
+);
 
 export const metadata: Metadata = {
   title: "TRx WEB — Professional Websites Delivered in 48 Hours | Nepal",

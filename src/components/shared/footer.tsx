@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MessageCircle, Globe, Share2, ArrowUpRight } from "lucide-react";
-import { WHATSAPP_NUMBER } from "@/lib/constants";
+import { MessageCircle, Globe, Share2, ArrowUpRight, Phone, Mail } from "lucide-react";
+import { WHATSAPP_NUMBER, FACEBOOK_URL, PHONE_NUMBER, EMAIL } from "@/lib/constants";
 
 const footerLinks = {
   Services: [
@@ -28,9 +28,8 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: MessageCircle, href: `https://wa.me/${WHATSAPP_NUMBER}`, label: "WhatsApp" },
-  { icon: Globe,         href: "https://facebook.com/trxweb",       label: "Facebook" },
+  { icon: Globe,         href: FACEBOOK_URL,                        label: "Facebook" },
   { icon: Share2,        href: "https://instagram.com/trxweb",      label: "Instagram" },
-  { icon: Share2,        href: "https://linkedin.com/company/trxweb", label: "LinkedIn" },
 ];
 
 export function Footer() {
@@ -67,6 +66,7 @@ export function Footer() {
               deployed on Vercel — starting from NPR&nbsp;4,999.
             </p>
 
+            {/* Social icons */}
             <div className="flex items-center gap-2">
               {socialLinks.map((s) => (
                 <a
@@ -80,6 +80,33 @@ export function Footer() {
                   <s.icon className="w-3.5 h-3.5" />
                 </a>
               ))}
+            </div>
+
+            {/* Contact info */}
+            <div className="flex flex-col gap-2">
+              <a
+                href={`tel:${PHONE_NUMBER}`}
+                className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Phone className="w-3 h-3 text-primary" />
+                {PHONE_NUMBER}
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Mail className="w-3 h-3 text-primary" />
+                {EMAIL}
+              </a>
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Globe className="w-3 h-3 text-primary" />
+                facebook.com/trxweb687
+              </a>
             </div>
 
             <div className="flex items-center gap-2 text-xs text-muted-foreground">

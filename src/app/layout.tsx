@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Kalam } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/shared/navbar";
-import { Footer } from "@/components/shared/footer";
-import { FloatingWhatsApp } from "@/components/shared/floating-whatsapp";
+import { ClientLayout } from "@/components/shared/client-layout";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
 import { SITE_NAME, SITE_DESCRIPTION, SITE_URL } from "@/lib/constants";
@@ -17,15 +15,17 @@ const inter = Inter({
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
   variable: "--font-display",
 });
 
+// Decorative font — not preloaded so it doesn't block initial render
 const kalam = Kalam({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "700"],
+  weight: ["400"],
   variable: "--font-kalam",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -98,6 +98,11 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${kalam.variable} h-full`}
       suppressHydrationWarning
     >
+      <head>
+        {/* Preconnect to image CDN used site-wide */}
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground antialiased">
         <ThemeProvider
           attribute="class"
@@ -105,10 +110,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <FloatingWhatsApp />
+          <ClientLayout>{children}</ClientLayout>
           <Toaster position="bottom-right" richColors />
         </ThemeProvider>
       </body>

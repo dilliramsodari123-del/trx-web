@@ -73,14 +73,14 @@ export function PortfolioPreviewSection() {
   const dragRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-24 bg-[#09090b] overflow-hidden" id="portfolio">
+    <section className="py-16 md:py-24 bg-[#09090b] overflow-hidden relative" id="portfolio">
       {/* Glow blobs */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-violet-600/10 blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-48 h-48 sm:w-80 sm:h-80 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-40 h-40 sm:w-64 sm:h-64 rounded-full bg-violet-600/10 blur-3xl" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 md:mb-12">
         <div className="text-center">
           <div className="flex justify-center mb-4">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-primary/30 text-primary px-3 py-1 text-xs font-medium uppercase tracking-wide">
@@ -88,27 +88,28 @@ export function PortfolioPreviewSection() {
               Our Work
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white mb-4">
             Real Websites for{" "}
             <span className="text-primary">Real Businesses</span>
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+          <p className="text-white/50 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Real websites built for real businesses across Nepal
           </p>
+          <p className="text-white/30 text-xs mt-2 md:hidden">← Swipe to explore →</p>
         </div>
       </div>
 
       {/* Drag carousel */}
       <div
         ref={containerRef}
-        className="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_95%,transparent_100%)]"
+        className="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_8%,black_92%,transparent_100%)]"
       >
         <motion.div
           ref={dragRef}
           drag="x"
           dragConstraints={containerRef}
           dragElastic={0.05}
-          className="flex gap-5 px-8 cursor-grab active:cursor-grabbing pb-4"
+          className="flex gap-4 sm:gap-5 px-4 sm:px-8 cursor-grab active:cursor-grabbing pb-4"
           whileTap={{ cursor: "grabbing" }}
         >
           {SAMPLE_PORTFOLIO.map((item) => {
@@ -118,7 +119,7 @@ export function PortfolioPreviewSection() {
                 key={item.id}
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="glass-panel rounded-2xl overflow-hidden shrink-0 w-72 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-300 border border-white/10"
+                className="glass-panel rounded-2xl overflow-hidden shrink-0 w-[260px] sm:w-72 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/20 transition-all duration-300 border border-white/10"
               >
                 {/* Browser chrome */}
                 <div className="bg-zinc-900/80 px-3 py-2 flex items-center gap-1.5 border-b border-white/8">

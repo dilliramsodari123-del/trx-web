@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Marcus Sterling | Strategic Advisor</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#e2e2e2",
+                    "surface-tint": "#e9c349",
+                    "surface-container-high": "#282a2b",
+                    "tertiary-container": "#b5b2b2",
+                    "primary-container": "#d4af37",
+                    "outline-variant": "#4d4635",
+                    "on-primary-container": "#554300",
+                    "on-surface-variant": "#d0c5af",
+                    "surface": "#121414",
+                    "surface-container-lowest": "#0d0f0f",
+                    "primary-fixed": "#ffe088",
+                    "on-tertiary-fixed-variant": "#474646",
+                    "on-error": "#690005",
+                    "secondary-fixed-dim": "#b1c5ff",
+                    "tertiary": "#d0cecd",
+                    "primary": "#f2ca50",
+                    "inverse-primary": "#735c00",
+                    "tertiary-fixed": "#e5e2e1",
+                    "on-tertiary-container": "#454545",
+                    "on-secondary-fixed-variant": "#00419e",
+                    "inverse-on-surface": "#2f3131",
+                    "on-secondary": "#002c70",
+                    "surface-variant": "#333535",
+                    "surface-container-low": "#1a1c1c",
+                    "secondary-fixed": "#dae2ff",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-secondary-fixed": "#001946",
+                    "inverse-surface": "#e2e2e2",
+                    "error-container": "#93000a",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-fixed": "#241a00",
+                    "on-tertiary-fixed": "#1c1b1b",
+                    "surface-container": "#1e2020",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-highest": "#333535",
+                    "tertiary-fixed-dim": "#c8c6c5",
+                    "on-primary": "#3c2f00",
+                    "surface-dim": "#121414",
+                    "error": "#ffb4ab",
+                    "primary-fixed-dim": "#e9c349",
+                    "secondary": "#b1c5ff",
+                    "outline": "#99907c",
+                    "on-tertiary": "#313030",
+                    "secondary-container": "#0148ab",
+                    "surface-bright": "#38393a",
+                    "on-secondary-container": "#a6beff",
+                    "background": "#121414"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "container-padding-mobile": "24px",
+                    "section-gap": "80px",
+                    "gutter": "16px",
+                    "container-padding-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Inter"],
+                    "headline-xl": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "label-sm": ["Inter"],
+                    "body-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-xl": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.03em", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      body {
+        background-color: #050505;
+        color: #e2e2e2;
+        overflow-x: hidden;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .active-nav-indicator {
+        position: relative;
+      }
+      .active-nav-indicator::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #f2ca50;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0d0f0f;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #333535;
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md custom-scrollbar">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-white/10 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop h-20 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="menu">menu</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-on-surface">EXECUTIVE</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-md text-label-md text-primary font-bold transition-colors duration-300" href="#">Overview</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Executive Bio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Portfolio</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Insights</a>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2 font-label-md text-label-md font-bold cursor-pointer active:scale-95 transition-transform">
+            CONSULT
+        </button>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[795px] flex items-center px-container-padding-mobile md:px-container-padding-desktop py-section-gap overflow-hidden">
+<div class="absolute inset-0 z-0">
+
+</div>
+<div class="container mx-auto grid md:grid-cols-2 gap-gutter items-center relative z-10">
+<div class="space-y-8 max-w-2xl">
+<div class="inline-block px-3 py-1 bg-surface-container-high border border-white/10 rounded-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">Strategic Advisor</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight">
+                        Elevating Corporate Strategy with <span class="text-primary">Precision</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Advising Fortune 500 executives on complex M&amp;A, high-stakes leadership transitions, and transformative growth initiatives.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary px-10 py-4 text-on-primary font-label-md text-label-md font-bold transition-all hover:brightness-110 active:scale-95">
+                            Book a Consultation
+                        </button>
+<button class="border border-secondary text-secondary px-10 py-4 font-label-md text-label-md font-bold hover:bg-secondary/10 transition-all active:scale-95">
+                            View Case Studies
+                        </button>
+</div>
+</div>
+<div class="relative mt-12 md:mt-0">
+<div class="aspect-[4/5] w-full max-w-md mx-auto glass-card p-2 relative overflow-hidden group">
+<img alt="Marcus Sterling" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional, high-end executive portrait of a middle-aged man in a tailored charcoal suit, standing in a dimly lit, modern architectural space with warm ambient lighting. The atmosphere is sophisticated and authoritative, utilizing a palette of obsidian, gold highlights, and deep shadows. The composition is a sharp, medium shot with a shallow depth of field, emphasizing a look of quiet confidence and strategic depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQLbYCVi8CpObdcYmHhp1nk50OPZLqojg-hsfX_i55hihA8tZasqdQZxjiV0BtJgHO2CH9_ctiSam7hqhFJNNSzDojiNSIOxgPjgfUnEX-8YcgW_KH6ytPcvqvoOUgpgT8K7W4Oy5G02C_BBLAMG7iPSFaDkFRqwB33fgory8uEGvNLwBQFjZ8eGAMbcBWHaabEAi93rUntzJzKuEu9hi0Po6uX6BpX8JgoxhRA6qZ83T-FKeCa861fth917In5JbyCfJNTX-SfhIF"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8">
+<p class="font-headline-md text-headline-md text-white">Marcus Sterling</p>
+<p class="font-label-md text-label-md text-primary tracking-widest uppercase">Principal Advisor</p>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary/20 blur-3xl -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Trusted By Section -->
+<section class="py-12 border-y border-white/10 bg-surface-container-lowest">
+<div class="px-container-padding-mobile md:px-container-padding-desktop">
+<p class="font-label-sm text-label-sm text-center text-on-surface-variant uppercase tracking-[0.3em] mb-10">Trusted by Global Industry Leaders</p>
+<div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-50 grayscale">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">FINANCE.CO</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter italic">VANGUARD</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">GLOBAL_TECH</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">ELITE_RETAIL</span>
+<span class="font-headline-md text-headline-md font-bold tracking-tighter">AERO_SYS</span>
+</div>
+</div>
+</section>
+<!-- Core Expertise Section -->
+<section class="py-section-gap px-container-padding-mobile md:px-container-padding-desktop">
+<div class="container mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Expertise in High-Stakes Environments</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Providing a rare synthesis of analytical rigor and executive intuition to navigate the complexities of modern global markets.
+                        </p>
+</div>
+<div class="h-px flex-grow bg-white/10 mx-12 hidden md:block"></div>
+<div class="font-label-md text-label-md text-primary tracking-tighter">01 / CAPABILITIES</div>
+</div>
+<div class="grid md:grid-cols-3 gap-gutter">
+<!-- Strategy Card -->
+<div class="glass-card p-unit group hover:border-primary transition-colors duration-500 flex flex-col h-full">
+<div class="p-8 space-y-6 flex-grow">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="insights">insights</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Strategy</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Architecture of long-term value creation. We redefine market positioning and operational models to achieve sustainable competitive advantage.
+                            </p>
+</div>
+<div class="px-8 pb-8">
+<ul class="space-y-3 font-label-md text-label-md text-on-surface">
+<li class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-primary"></div> Market Entry Frameworks
+                                </li>
+<li class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-primary"></div> Digital Transformation
+                                </li>
+</ul>
+</div>
+<div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500"></div>
+</div>
+<!-- M&A Card -->
+<div class="glass-card p-unit group hover:border-secondary transition-colors duration-500 flex flex-col h-full">
+<div class="p-8 space-y-6 flex-grow">
+<span class="material-symbols-outlined text-4xl text-secondary" data-icon="handshake">handshake</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">M&amp;A</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Precision advisory for mergers, acquisitions, and divestitures. Navigating valuation, due diligence, and post-merger integration.
+                            </p>
+</div>
+<div class="px-8 pb-8">
+<ul class="space-y-3 font-label-md text-label-md text-on-surface">
+<li class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-secondary"></div> Transaction Advisory
+                                </li>
+<li class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-secondary"></div> Synergy Optimization
+                                </li>
+</ul>
+</div>
+<div class="h-1 w-0 group-hover:w-full bg-secondary transition-all duration-500"></div>
+</div>
+<!-- Leadership Card -->
+<div class="glass-card p-unit group hover:border-on-surface transition-colors duration-500 flex flex-col h-full">
+<div class="p-8 space-y-6 flex-grow">
+<span class="material-symbols-outlined text-4xl text-on-surface" data-icon="account_balance">account_balance</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Leadership</h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Executive coaching and board advisory. Cultivating leadership excellence and governance structures that drive organizational performance.
+                            </p>
+</div>
+<div class="px-8 pb-8">
+<ul class="space-y-3 font-label-md text-label-md text-on-surface">
+<li class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-on-surface"></div> Board Governance
+                                </li>
+<li class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 bg-on-surface"></div> Executive Mentorship
+                                </li>
+</ul>
+</div>
+<div class="h-1 w-0 group-hover:w-full bg-on-surface transition-all duration-500"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Callout -->
+<section class="py-section-gap bg-surface-container-low px-container-padding-mobile md:px-container-padding-desktop">
+<div class="container mx-auto">
+<div class="glass-card grid md:grid-cols-2 overflow-hidden">
+<div class="p-12 md:p-24 space-y-8 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface">The 2024 Strategic Outlook</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                            Download Marcus Sterling's latest whitepaper on navigating economic volatility and the role of adaptive leadership in the new decade.
+                        </p>
+<button class="flex items-center gap-4 text-primary font-label-md text-label-md font-bold group">
+                            ACCESS THE REPORT 
+                            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="relative h-64 md:h-auto min-h-[400px]">
+<img alt="Strategic Report" class="absolute inset-0 w-full h-full object-cover filter brightness-50" data-alt="A macro photograph of high-end, textured executive stationary and a luxury pen resting on a dark marble surface. The lighting is focused and dramatic, highlighting the fine paper grain and the subtle reflection on the stone. The color palette is composed of deep greys, blacks, and a touch of gold from the pen nib, evoking a sense of serious, high-stakes decision making and refined professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD1G1QR5-kgr3edqgEdRdkcKvArlI2Zrq_g3vPVLqijdBvFC059C75D3uoG8iGjZ3haTszDmqMshifWYqH66xIS9ZImbf2iLPK6AE5PyGMJMArz6kYlDDbS-CSSul9YR1fzgr5UgAF4MB83-azi6MjZtAu6j-A9CLm1dEEVd5gwwEYXno8JgeQJFgbbXNNMDEX7YzeZDbqBZMsoerHww-7fvKMVQZ56n9F7Z4DdEu6JYT5aT19oKPdkMn--FMJ_we3c7vMkmGUm-T4"/>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-white/10 w-full">
+<div class="flex flex-col md:flex-row justify-between items-center py-section-gap px-container-padding-mobile md:px-container-padding-desktop w-full max-w-[1440px] mx-auto">
+<div class="mb-12 md:mb-0 space-y-4">
+<div class="font-headline-lg text-headline-lg text-on-surface">MARCUS STERLING</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-sm">
+                    Discreet, high-impact strategic advisory for the world's most ambitious leaders.
+                </p>
+</div>
+<div class="grid grid-cols-2 md:flex gap-12 md:gap-24">
+<div class="space-y-6">
+<p class="font-label-md text-label-md text-on-surface uppercase tracking-widest">Connect</p>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Twitter</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<p class="font-label-md text-label-md text-on-surface uppercase tracking-widest">Resources</p>
+<ul class="space-y-4 font-body-md text-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Insights</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="px-container-padding-mobile md:px-container-padding-desktop pb-8 text-center md:text-left">
+<p class="font-label-md text-label-md text-on-surface-variant opacity-50 tracking-wider">
+                © 2024 MARCUS STERLING. ALL RIGHTS RESERVED.
+            </p>
+</div>
+</footer>
+<!-- FAB for Consultation -->
+<div class="fixed bottom-8 right-8 z-40 group">
+<button class="bg-primary text-on-primary w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+</button>
+<div class="absolute right-20 bottom-4 bg-surface-container-highest text-on-surface px-4 py-2 font-label-md text-label-md opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0 transition-all whitespace-nowrap pointer-events-none border border-white/10">
+            Book a Walk
+        </div>
+</div>
+<script>
+        // Simple scroll interaction for navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('h-16');
+                nav.classList.remove('h-20');
+            } else {
+                nav.classList.add('h-20');
+                nav.classList.remove('h-16');
+            }
+        });
+
+        // Hover micro-interactions for cards
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.transition = 'transform 0.3s ease-out';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body></html>
